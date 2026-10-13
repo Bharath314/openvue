@@ -199,4 +199,31 @@ describe('DatePicker.vue', () => {
             expect(nextLabel()).toBe('Next Month, March 2026');
         });
     });
+
+    describe('time picker live region', () => {
+        const liveTime = () => wrapper.find('.p-datepicker-time-picker [aria-live="polite"]');
+
+        beforeEach(async () => {
+            await wrapper.setProps({ inline: true, showTime: true });
+            await wrapper.setData({ currentHour: 9, currentMinute: 5 });
+        });
+
+        it('should announce the current time', () => {
+            expect(liveTime().exists()).toBe(true);
+            expect(liveTime().text()).toBe('09:05');
+        });
+
+        it('should include seconds and am/pm when shown', async () => {
+            await wrapper.setProps({ showSeconds: true, hourFormat: '12' });
+            await wrapper.setData({ currentSecond: 7, pm: true });
+
+            expect(liveTime().text()).toBe('09:05:07 pm');
+        });
+
+        it('should update when the time changes', async () => {
+            await wrapper.setData({ currentHour: 10 });
+
+            expect(liveTime().text()).toBe('10:05');
+        });
+    });
 });

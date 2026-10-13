@@ -323,6 +323,9 @@
                         </div>
                     </template>
                     <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="cx('timePicker')" :data-p="timePickerDataP" v-bind="ptm('timePicker')">
+                        <div class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenTime')" :data-p-hidden-accessible="true">
+                            {{ formattedCurrentTime }}
+                        </div>
                         <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')" data-pc-group-section="timepickerContainer">
                             <slot name="hourincrementbutton" :callbacks="hourIncrementCallbacks">
                                 <Button
@@ -3217,6 +3220,19 @@ export default {
         },
         formattedCurrentSecond() {
             return this.currentSecond < 10 ? '0' + this.currentSecond : this.currentSecond;
+        },
+        formattedCurrentTime() {
+            let time = `${this.formattedCurrentHour}${this.timeSeparator}${this.formattedCurrentMinute}`;
+
+            if (this.showSeconds) {
+                time += `${this.timeSeparator}${this.formattedCurrentSecond}`;
+            }
+
+            if (this.hourFormat == '12') {
+                time += ` ${this.pm ? this.$primevue.config.locale.pm : this.$primevue.config.locale.am}`;
+            }
+
+            return time;
         },
         todayLabel() {
             return this.$primevue.config.locale.today;

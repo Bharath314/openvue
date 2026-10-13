@@ -27,7 +27,10 @@
             <i>pm</i> keys.
         </p>
 
-        <p>DatePicker also includes a hidden section that is only available to screen readers with <i>aria-live</i> as "polite". This element is updated when the selected date changes to instruct the user about the current date selected.</p>
+        <p>
+            DatePicker also includes a hidden section that is only available to screen readers with <i>aria-live</i> as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. The
+            timepicker has a similar section that announces the new time whenever the hour, minute, second or am/pm value changes.
+        </p>
 
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 

@@ -354,6 +354,10 @@ export interface DatePickerPassThroughOptions {
      */
     hiddenYear?: DatePickerPassThroughOptionType;
     /**
+     * Used to pass attributes to the aria time's DOM element.
+     */
+    hiddenTime?: DatePickerPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
