@@ -186,9 +186,10 @@ describe('DatePicker.vue', () => {
             expect(nextLabel()).toBe('Next Decade, 2030 - 2039');
         });
 
-        it('should point the next button past the last visible month', async () => {
+        it('should include the target months in multiple months view', async () => {
             await wrapper.setProps({ numberOfMonths: 2 });
 
+            expect(prevLabel()).toBe('Previous Month, December 2025');
             expect(nextLabel()).toBe('Next Month, March 2026');
         });
 
