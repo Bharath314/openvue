@@ -13,6 +13,7 @@ All packages in this repository are released together under a single version.
 - Fix populating time in DatePicker when using 24-hour format
 - `InputNumber` no longer changes the number you type after an initial `0`. With a suffix such as `" kg"` the second digit cleared the field, and in currency fields typing `1250` into `$0.00` gave `$1.25`. Contributed by [@AntekOlszewski](https://github.com/AntekOlszewski). ([#665](https://github.com/openvi-foundation/openvue/pull/665))
 - Fix InputMask update:modelValue emitting stale value upon clearing when unmask is set to true.   
+- Pressing tab no longer toggles options in MultiSelect. Tabbing past a MultiSelect after mount doesn't toggle the first option anymore either.
 
 ## [1.0.0] - 2026-09-10
 
