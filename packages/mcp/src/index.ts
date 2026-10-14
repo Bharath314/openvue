@@ -34,7 +34,7 @@ const composables = [
         usage: `import { useStyle } from 'openvue/usestyle';\nuseStyle(css, { name: 'my-styles' });`,
         example: `useStyle('.my-class { color: red; }', { name: 'custom' });`
     },
-    //TODO: change to OpenVue when composable is renamed
+    // usePrimeVue keeps its name, OpenVue stays API-compatible with PrimeVue 4
     {
         name: 'usePrimeVue',
         description: 'Access PrimeVue configuration',
