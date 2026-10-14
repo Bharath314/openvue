@@ -20,7 +20,7 @@ export default {
       "args": [
         "-y",
         "@openvue/mcp"
-      ],
+      ]
     }
   }
 }
