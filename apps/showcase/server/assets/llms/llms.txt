@@ -22,6 +22,7 @@
 - [Theme Designer](https://openvue.dev/designer): Design a theme visually and export it as ready-to-use code. Free, MIT-licensed, and entirely local.
 - [Tailwind CSS](https://openvue.dev/tailwind): Integration between OpenVue and Tailwind CSS both in styled and unstyled modes.
 - [Contribution Guide](https://openvue.dev/contribution): Welcome to the OpenVue Contribution Guide and thank you for considering contributing.
+- [Changelog](https://openvue.dev/changelog): Every OpenVue release since the fork from PrimeVue 4.5.5, newest first. All packages ship together under one version.
 - [Setup](https://openvue.dev/setup): Installation guides for popular development environments.
 - [LLMs.txt](https://openvue.dev/llms): LLM-optimized documentation endpoints for OpenVue components.
 - [MCP Server](https://openvue.dev/mcp): Model Context Protocol (MCP) server for OpenVue component library. Provides AI assistants with comprehensive access to OpenVue component documentation.

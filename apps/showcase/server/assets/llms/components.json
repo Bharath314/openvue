@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-10-08",
+  "generatedAt": "2026-10-15",
   "components": [
     {
       "name": "accordion",
@@ -10070,7 +10070,7 @@
         {
           "id": "accessibility",
           "label": "Accessibility",
-          "description": "Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as \"none\", aria-haspopup as \"dialog\" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as \"polite\". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.",
+          "description": "Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as \"none\", aria-haspopup as \"dialog\" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API, followed by the month, year or decade the button navigates to such as Next Month, November 2026 . Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as \"polite\". This element is updated when the selected date changes to instruct the user about the current date selected. The timepicker has a similar section that announces the new time whenever the hour, minute, second or am/pm value changes. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.",
           "examples": {
             "basic": "<label for=\"date1\">Date</label>\n<DatePicker inputId=\"date1\" />\n\n<span id=\"date2\">Date</span>\n<DatePicker aria-labelledby=\"date2\" />\n\n<DatePicker aria-label=\"Date\" />"
           }
@@ -11003,6 +11003,11 @@
             "name": "hiddenYear",
             "type": "DatePickerPassThroughOptionType",
             "description": "Used to pass attributes to the aria year's DOM element."
+          },
+          {
+            "name": "hiddenTime",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the aria time's DOM element."
           },
           {
             "name": "hooks",
@@ -20415,7 +20420,7 @@
           "label": "Cursor",
           "description": "Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configuration.",
           "examples": {
-            "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -20451,7 +20456,7 @@
           "label": "VS Code",
           "description": "Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/User/mcp.json for global configuration.",
           "examples": {
-            "basic": "{\n    \"servers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"servers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -20459,7 +20464,7 @@
           "label": "Windsurf",
           "description": "Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.",
           "examples": {
-            "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -20467,7 +20472,7 @@
           "label": "Zed",
           "description": "Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/Application Support/Zed/settings.json (macOS).",
           "examples": {
-            "basic": "{\n    \"context_servers\": {\n        \"primevue\": {\n            \"command\": {\n                \"path\": \"npx\",\n                \"args\": [\"-y\", \"@openvue/mcp\"]\n            }\n        }\n    }\n}"
+            "basic": "{\n  \"context_servers\": {\n    \"openvue\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"-y\",\n        \"@openvue/mcp\"\n      ]\n    }\n  }\n}"
           }
         }
       ],
@@ -40153,6 +40158,80 @@
       ]
     },
     {
+      "name": "changelog",
+      "path": "changelog",
+      "title": "Changelog",
+      "description": "Every OpenVue release since the fork from PrimeVue 4.5.5, newest first. All packages ship together under one version.",
+      "sections": [
+        {
+          "id": "unreleased",
+          "label": "Unreleased",
+          "description": "### Fixed\n\n- Fix populating time in DatePicker when using 24-hour format\n- `DatePicker` previous and next buttons now tell screen reader users where they navigate to, e.g. \"Next Month, November 2026\" instead of just \"Next Month\". The labels reuse existing locale keys, so translations need no changes. ([#679](https://github.com/openvi-foundation/openvue/pull/679))\n- `DatePicker` time picker now announces the new time to screen readers when the hour, minute, second or AM/PM changes. ([#679](https://github.com/openvi-foundation/openvue/pull/679))\n- `InputNumber` no longer changes the number you type after an initial `0`. With a suffix such as `\" kg\"` the second digit cleared the field, and in currency fields typing `1250` into `$0.00` gave `$1.25`. Contributed by [@AntekOlszewski](https://github.com/AntekOlszewski). ([#665](https://github.com/openvi-foundation/openvue/pull/665))\n- Fix InputMask update:modelValue emitting stale value upon clearing when unmask is set to true.\n- Inputs inside a `Form` with `initialValues` no longer jump back to the initial value when cleared. ([#686](https://github.com/openvi-foundation/openvue/pull/686))\n- Pressing tab no longer toggles options in MultiSelect. Tabbing past a MultiSelect after mount doesn't toggle the first option anymore either.",
+          "examples": null
+        },
+        {
+          "id": "1.0.0",
+          "label": "1.0.0 - 2026-09-10",
+          "description": "The first stable release. The public API is what OpenVue commits to for the 1.x line, and the packages now publish under the `latest` dist-tag, so a plain `npm install openvue` gives you 1.0.0 instead of a prerelease. From here the project follows semantic versioning: additions go in minor releases, fixes in patch releases, and anything that breaks your code waits for 2.0.\n\n### Added\n\n- `TreeTable` gains the filtering modes `DataTable` already had. A new `filterDisplay` prop turns on either a filter row under the header (`\"row\"`) or a filter menu with advanced multi-constraint rules (`\"menu\"`), and `globalFilterFields`, `filterInputProps` and `filterButtonProps` come with it. The filter styles and their design tokens ship in every preset, so Aura, Lara, Material and Nora all style the new filter UI. ([#638](https://github.com/openvi-foundation/openvue/issues/638))\n- The Theme Designer, a visual editor for the theming API, is now part of the showcase. Pick a preset as a foundation, edit primitive, semantic and per-component tokens, watch the documentation site restyle as you type, then export the result as an ordinary preset file. It is MIT licensed like the rest of OpenVue, with no account, no license key, no theme limit and no paid tier. It makes no network requests: themes are kept in your browser's local storage and every export, share link and migration is computed on your machine. Open it from the sliders icon in the top bar. ([#655](https://github.com/openvi-foundation/openvue/pull/655))\n- Showcase: a components gallery, reachable from the landing page and the footer, with a live preview on every card.\n- Showcase: an application template, Deni.\n- The contributors who have helped build OpenVue are now credited in the README and kept up to date automatically.\n\n### Changed\n\n- `@openvue/migrate` no longer adds an automatic `primevue` -> `openvue` dependency override. It is not needed for a normal migration; add one yourself if a leftover package still requires `primevue`. ([#639](https://github.com/openvi-foundation/openvue/issues/639))\n- The `@openuxkit/styles` and `@openuxkit/themes` engine packages are upgraded to 1.1.0, which is where the TreeTable filter styles and the two `Toast` and `Image` fixes below come from.\n- Showcase: a reworked navigation bar and landing hero, the full footer on every page, and fuller SEO metadata across the site.\n- Volt: `AccordionHeader` imported its two chevron icons under each other's names, which cancelled out against a matching swap in the template. Both are corrected, so the code now says what it does. Rendering is unchanged. Contributed by [@wahpiangle](https://github.com/wahpiangle). ([#650](https://github.com/openvi-foundation/openvue/pull/650))\n\n### Fixed\n\n- `DataTable` keeps a resized column width attached to its own column when columns are hidden or shown. Widths were stored positionally, so hiding a column shifted every width after it onto the wrong column. Widths are now tracked per column, remapped as the visible set changes, and persisted that way, so a reload no longer pairs a stored width with the wrong column. A column is tracked when it has a `columnKey` or a `field` that is unique among the visible columns; grouped headers and columns that share a field keep the previous positional behaviour, and state written by earlier versions is still restored. Contributed by [@pupuking723](https://github.com/pupuking723). ([#627](https://github.com/openvi-foundation/openvue/pull/627))\n- `TreeTable` no longer sorts a column when you click that column's filter menu button. The button sits inside the sortable header, so opening a filter menu also reordered the rows underneath it.\n- `ContextMenu`, `MegaMenu`, `Menubar` and `TieredMenu` no longer set `aria-level` on their items. The attribute is not valid on the `menuitem` role and made screen readers announce a nesting depth that is not part of the menu pattern. ([#645](https://github.com/openvi-foundation/openvue/pull/645))\n- `Toast` no longer nudges the messages under it in the last frame of a dismissal. A leaving message collapsed its height and margin but held on to its border width, so the rest of the stack shifted by a couple of pixels as it vanished, and the animation did not keep its final frame. The border now collapses with everything else and the animation holds where it ends.\n- `Toast` and `Image` apply their backdrop blur in Safari and other WebKit browsers, which still need the `-webkit-backdrop-filter` prefix. The surface behind a toast and the toolbar over an image preview were rendering unblurred there.\n- Showcase: dates in the landing page tables render identically in every timezone, instead of shifting by a day depending on where you are.\n- Showcase: the homepage stays indexable when the client render fails, so a transient error no longer costs the page its search listing.\n- Showcase: the error page and several landing sections no longer overflow horizontally on narrow viewports.",
+          "examples": null
+        },
+        {
+          "id": "1.0.0-rc.0",
+          "label": "1.0.0-rc.0 - 2026-08-18",
+          "description": "The first release candidate. The version moves from `0.7.0-beta.0` to `1.0.0-rc.0`: the public API is what we intend to ship as 1.0, and from here we only take bug fixes and documentation until the stable release. Packages are published under the `rc` dist-tag. Report anything that looks like a regression, that is exactly what a release candidate is for.\n\n### Added\n\n- `VirtualScroller` gains a `getItemSize` prop, a callback that returns an item's height by index, so a list whose rows are not all the same height can still be virtualized. ([#621](https://github.com/openvi-foundation/openvue/pull/621))\n- Showcase: a Playground tab on the form components, the button components, and the panel components (Accordion, Card, DeferredContent, Divider, Fieldset, Panel, ScrollPanel, Splitter, Stepper, Tabs and Toolbar). Each one generates the code for whatever you set up in it, as a complete single file component in both the Composition and Options API. ([#622](https://github.com/openvi-foundation/openvue/pull/622), [#623](https://github.com/openvi-foundation/openvue/pull/623), [#624](https://github.com/openvi-foundation/openvue/pull/624))\n- Showcase: a guide for migrating charts from PrimeVue.\n\n### Changed\n\n- The `@openuxkit/*` engine packages are upgraded to 1.0.0.\n- Showcase: the icons page is built on `@openvue/openicons` and restructured around the two OpenIcons formats. ([#37](https://github.com/openvi-foundation/openvue/pull/37))\n- Showcase: the introduction and contribution pages are rewritten, and Components now sits above Configuration in the sidebar.\n\n### Fixed\n\n- `DataTable` supports subheader row grouping together with virtual scrolling. Group headers and footers are measured rather than assumed to be the same height as a row, so grouped rows no longer drift out of position while scrolling. Contributed by [@Tamas-hi](https://github.com/Tamas-hi). ([#621](https://github.com/openvi-foundation/openvue/pull/621))\n- `BlockUI` always removes its mask when unblocked. Blocking and unblocking in quick succession, or unmounting the component while the leave animation was still running, could leave a mask covering the page and swallowing every click. The mask is now also cleaned up when the component unmounts. ([#626](https://github.com/openvi-foundation/openvue/pull/626))\n- Showcase: the `Toast` documentation covers removing a single message by its id, and the Multiple demo no longer calls a method that does not exist. ([#628](https://github.com/openvi-foundation/openvue/pull/628), [#629](https://github.com/openvi-foundation/openvue/pull/629))\n- `DataTable`'s advanced filter menu stays open while you use an overlay inside it, such as the match mode `Select`, a `MultiSelect` or a `DatePicker`. The menu recognises a nested overlay through its attribute selector, so being appended to the body no longer makes it look like an outside click. `Select` additionally announces the interaction on mousedown, since it commits an option and hides its overlay before the browser dispatches the click, which also fixes a `Select` nested in a `Popover`. ([#630](https://github.com/openvi-foundation/openvue/issues/630))",
+          "examples": null
+        },
+        {
+          "id": "0.7.0-beta.0",
+          "label": "0.7.0-beta.0 - 2026-08-03",
+          "description": "The version jumps from `0.0.1-beta.1` to `0.7.0-beta.0` to reflect the project's actual maturity. Nothing was released between the two. Packages remain pre-1.0 and continue to be published under the `beta` dist-tag.\n\n### Added\n\n- `Chart` now follows the active theme, reading colors, fonts, grid and border values from the design tokens instead of relying on Chart.js defaults, and restyling itself when the preset changes or dark mode is toggled. Controlled by a new `themed` prop, enabled by default.\n- `Chart` ships TypeScript definitions.\n- `Password` gains `showPasswordLabel` and `hidePasswordLabel` props for labelling the mask toggle.\n- `chart.js` and `quill` are declared as optional `peerDependencies`, so package managers surface the expected version instead of leaving it undocumented.\n- `Chart` logs an actionable error when `chart.js` is not installed, rather than failing silently.\n- Showcase: a chart playground covering every chart type, a reworked landing hero, topbar and footer, and an About page.\n- `SECURITY.md` describing how to report a vulnerability.\n- `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).\n- This changelog, backfilled with the release history from alpha.1 onward.\n\n### Changed\n\n- Documentation links in TypeScript definitions now point to openvue.dev instead of primevue.org, so editor tooltips reference the maintained docs.\n- `Chart` requires Chart.js 4.5 or newer.\n- Charts pick up a default look derived from the theme. Existing charts that relied on Chart.js default styling will look different; pass `:themed=\"false\"` to opt out.\n\n### Removed\n\n- **Breaking:** `Chart`'s `generateLegend()` method. It called a Chart.js 2 API that has not existed since Chart.js 3, so it threw whenever it was called. Use the `plugins` option to customise legends.\n\n### Fixed\n\n- `Chart`'s `getCanvas()` returned `undefined` because it read a property that was never assigned.\n- `Chart` no longer builds an instance against a detached canvas when the component unmounts before the async `chart.js` import resolves.\n- `Chart` now reflects replaced `data` and `options` objects, which previously did not reach the underlying instance.\n- The `Password` mask toggle fired twice when a custom slot was used.\n- The show/hide and clear buttons on `Password` are now keyboard accessible.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-beta.1",
+          "label": "0.0.1-beta.1 - 2026-07-27",
+          "description": "### Changed\n\n- Replaced the `@primeuix/*` engine dependencies with the forked `@openuxkit/*` packages (`styled`, `utils`, `styles`, `themes`, `forms`, `mcp`), completing the move off upstream packages. Theme presets and the public theming API continue to come from `@openvue/themes`; `@openuxkit/themes` supplies `/tokens` and `/types`.\n- `@openvue/migrate` now rewrites `@primeuix/*` imports to `@openuxkit/*` as part of a migration.\n- Showcase theming documentation updated for the OpenUXKit packages.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-beta.0",
+          "label": "0.0.1-beta.0 - 2026-07-23",
+          "description": "### Changed\n\n- Promoted the packages from alpha to beta. The component API is considered stable from this point; remaining work is polish toward a stable release.\n- Refined the `@openvue/migrate` CLI output and styling.\n\n### Fixed\n\n- Typo on the showcase About page.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-alpha.5",
+          "label": "0.0.1-alpha.5 - 2026-07-23",
+          "description": "### Added\n\n- End-to-end consumer test suite covering real Vite, Nuxt, Laravel (Vite and Inertia), and Volt projects, exercised in CI on every pull request. Packages are packed as tarballs and installed the way a consumer would install them.\n- `scripts/verify-package-contracts.mjs` and `scripts/verify-dist.mjs`, which fail the build if a published artifact still references `primevue`.\n\n### Changed\n\n- `@openvue/migrate` is now interactive: it prints a plan covering the detected package manager, the PrimeVue version, and every file it will touch, then asks for confirmation before writing.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-alpha.4",
+          "label": "0.0.1-alpha.4 - 2026-07-20",
+          "description": "### Added\n\n- UMD build and CDN support, so OpenVue can be used from a `<script>` tag without a bundler.\n- CDN setup documentation on the showcase.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-alpha.3",
+          "label": "0.0.1-alpha.3 - 2026-07-20",
+          "description": "### Fixed\n\n- `@openvue/auto-import-resolver` resolved components to `primevue/...` paths instead of `openvue/...`.\n- The `openvue` root barrel (`index.mjs` / `index.d.ts`) still self-referenced `primevue/...`, which broke Vite resolution and produced `Module '\"openvue\"' has no exported member 'useToast'` under `tsc`.\n- The `@openvue/icons` barrel generator still emitted `@primevue/icons/...` templates, regenerating a broken barrel on every build.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-alpha.2",
+          "label": "0.0.1-alpha.2 - 2026-07-17",
+          "description": "### Added\n\n- Announcement page on openvue.dev covering the fork, the roadmap, and install instructions.",
+          "examples": null
+        },
+        {
+          "id": "0.0.1-alpha.1",
+          "label": "0.0.1-alpha.1 - 2026-07-17",
+          "description": "First OpenVue release, forked from PrimeVue 4.5.5.\n\n### Added\n\n- `@openvue/migrate`, a CLI that moves a PrimeVue v4 project to OpenVue in one command. It renames dependencies, rewrites imports across JavaScript, TypeScript, Vue, Astro, and MDX, adds a compatibility override so third-party packages that still depend on PrimeVue keep resolving, and reports anything needing manual attention. Supports npm, pnpm, Yarn, Bun, and monorepos, with `--dry`, sources-only, no-install, no-alias, and force modes. Refuses to run against a dirty Git tree unless forced.\n- Contributing guide and OpenVue issue templates.\n\n### Changed\n\n- Renamed the published packages: `primevue` is now `openvue`, and `@primevue/*` is now `@openvue/*`.\n- Rebranded the showcase as OpenVue, with a fork notice explaining the project's relationship to PrimeVue, and removed the PrimeTek commercial pages and assets.\n- License copyright updated for the fork. The project remains MIT.",
+          "examples": null
+        }
+      ]
+    },
+    {
       "name": "setup",
       "path": "setup",
       "title": "Setup",
@@ -40208,7 +40287,7 @@
           "label": "Cursor",
           "description": "Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configuration.",
           "examples": {
-            "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -40244,7 +40323,7 @@
           "label": "VS Code",
           "description": "Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/User/mcp.json for global configuration.",
           "examples": {
-            "basic": "{\n    \"servers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"servers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -40252,7 +40331,7 @@
           "label": "Windsurf",
           "description": "Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.",
           "examples": {
-            "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+            "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
           }
         },
         {
@@ -40260,7 +40339,7 @@
           "label": "Zed",
           "description": "Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/Application Support/Zed/settings.json (macOS).",
           "examples": {
-            "basic": "{\n    \"context_servers\": {\n        \"primevue\": {\n            \"command\": {\n                \"path\": \"npx\",\n                \"args\": [\"-y\", \"@openvue/mcp\"]\n            }\n        }\n    }\n}"
+            "basic": "{\n  \"context_servers\": {\n    \"openvue\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"-y\",\n        \"@openvue/mcp\"\n      ]\n    }\n  }\n}"
           }
         }
       ]

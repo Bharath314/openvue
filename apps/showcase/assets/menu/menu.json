@@ -610,7 +610,7 @@
                 },
                 {
                     "name": "Changelog",
-                    "href": "https://github.com/openvi-foundation/openvue/blob/master/CHANGELOG.md"
+                    "to": "/changelog"
                 },
                 {
                     "name": "Contribution",
