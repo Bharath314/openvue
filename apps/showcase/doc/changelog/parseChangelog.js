@@ -8,12 +8,12 @@ const resolveUrl = (url) => (/^(https?:|mailto:|#)/.test(url) ? url : REPO_BLOB 
 // Inline markdown subset used by the changelog: `code`, **bold** and [text](url). Code renders as <i>, the showcase's inline code mark.
 export const renderInline = (text) => {
     const codes = [];
-    let html = escapeHtml(text).replace(/`([^`]+)`/g, (_, code) => `\u0000${codes.push(code) - 1}\u0000`);
+    let html = escapeHtml(text).replace(/`([^`]+)`/g, (_, code) => `\uE000${codes.push(code) - 1}\uE000`);
 
     html = html.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
     html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, url) => `<a href="${resolveUrl(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`);
 
-    return html.replace(/\u0000(\d+)\u0000/g, (_, index) => `<i>${codes[index]}</i>`);
+    return html.replace(/\uE000(\d+)\uE000/g, (_, index) => `<i>${codes[index]}</i>`);
 };
 
 // Groups consecutive non-empty lines into paragraphs and list items.
