@@ -744,8 +744,12 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
 
     const mcpOutputPath = path.join(MCP_DATA_DIR, 'components.json');
 
+    // The changelog quotes old primevue/... specifiers on purpose, which verify-dist rejects in the
+    // published MCP bundle; release notes are not component knowledge, so the MCP server skips them.
+    const mcpOutput = { ...output, pages: output.pages.filter((page) => page.name !== 'changelog') };
+
     // 4-space indent + trailing newline to match prettier, which checks this file
-    fs.writeFileSync(mcpOutputPath, JSON.stringify(output, null, 4) + '\n', 'utf-8');
+    fs.writeFileSync(mcpOutputPath, JSON.stringify(mcpOutput, null, 4) + '\n', 'utf-8');
     console.log(`✓ Generated JSON output: ${mcpOutputPath}`);
 
     return output;
