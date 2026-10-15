@@ -15,6 +15,7 @@ All packages in this repository are released together under a single version.
 - `DatePicker` time picker now announces the new time to screen readers when the hour, minute, second or AM/PM changes. ([#679](https://github.com/openvi-foundation/openvue/pull/679))
 - `InputNumber` no longer changes the number you type after an initial `0`. With a suffix such as `" kg"` the second digit cleared the field, and in currency fields typing `1250` into `$0.00` gave `$1.25`. Contributed by [@AntekOlszewski](https://github.com/AntekOlszewski). ([#665](https://github.com/openvi-foundation/openvue/pull/665))
 - Fix InputMask update:modelValue emitting stale value upon clearing when unmask is set to true.
+- Inputs inside a `Form` with `initialValues` no longer jump back to the initial value when cleared. ([#686](https://github.com/openvi-foundation/openvue/pull/686))
 - Pressing tab no longer toggles options in MultiSelect. Tabbing past a MultiSelect after mount doesn't toggle the first option anymore either.
 
 ## [1.0.0] - 2026-09-10
