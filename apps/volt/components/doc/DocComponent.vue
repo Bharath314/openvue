@@ -1,8 +1,8 @@
 <template>
     <div :class="['doc-component', className]">
         <Head>
-            <Title>Volt | {{ title }}</Title>
-            <Meta name="description" :content="'Volt | ' + description" />
+            <Title>OpenVolt | {{ title }}</Title>
+            <Meta name="description" :content="'OpenVolt | ' + description" />
         </Head>
 
         <ul class="doc-tabmenu">

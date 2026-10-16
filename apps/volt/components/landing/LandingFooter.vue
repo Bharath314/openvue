@@ -12,8 +12,8 @@
                 </ul>
                 <ul class="flex flex-col gap-2 mx-auto">
                     <li class="font-bold">Community</li>
-                    <li><a href="https://github.com/openvi-foundation/discussions" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Discussions</a></li>
-                    <li><a href="https://discord.gg/gzKFYnpmCY" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Discord</a></li>
+                    <li><a href="https://github.com/orgs/openvi-foundation/discussions" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Discussions</a></li>
+                    <li><a href="https://discord.gg/nSq6PSEEGk" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Discord</a></li>
                 </ul>
                 <ul class="flex flex-col gap-2 mx-auto">
                     <li class="font-bold">Resources</li>

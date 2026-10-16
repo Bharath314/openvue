@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Customization is the most important value of Volt. Instead of CSS overrides of 3rd party UI libraries or learning design token APIs, the theming is integrated within the component for you to add customizations per your needs e.g. custom
-            branding. As example, here are 3 different Select components based on Volt, first one is the
+            Customization is the most important value of OpenVolt. Instead of CSS overrides of 3rd party UI libraries or learning design token APIs, the theming is integrated within the component for you to add customizations per your needs e.g.
+            custom branding. As example, here are 3 different Select components based on OpenVolt, first one is the
             <a href="https://github.com/openvi-foundation/openvue/blob/master/apps/volt/volt/select/index.vue" target="_blank" rel="noopener noreferrer">default</a>, second one is
             <a href="https://github.com/openvi-foundation/openvue/tree/master/apps/volt/doc/overview/select/compact.vue" target="_blank" rel="noopener noreferrer">compact</a> and third one is quite
-            <a href="https://github.com/openvi-foundation/openvue/tree/master/apps/volt/doc/overview/select/fancy.vue" target="_blank" rel="noopener noreferrer">fancy</a>. With Volt, the convenience of Tailwind allows for the creation of custom designs.
-            This opens up various possibilities, including the development of a in-house UI library tailored to your organization's needs.
+            <a href="https://github.com/openvi-foundation/openvue/tree/master/apps/volt/doc/overview/select/fancy.vue" target="_blank" rel="noopener noreferrer">fancy</a>. With OpenVolt, the convenience of Tailwind allows for the creation of custom
+            designs. This opens up various possibilities, including the development of a in-house UI library tailored to your organization's needs.
         </p>
     </DocSectionText>
     <div class="card">

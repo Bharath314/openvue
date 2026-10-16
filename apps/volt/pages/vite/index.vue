@@ -1,13 +1,13 @@
 <template>
     <Head>
-        <Title>Setting up Volt in a Vite project with OpenVue and Tailwind.</Title>
-        <Meta name="description" content="Setting up Volt in a Vite project with OpenVue and Tailwind." />
+        <Title>Setting up OpenVolt in a Vite project with OpenVue and Tailwind.</Title>
+        <Meta name="description" content="Setting up OpenVolt in a Vite project with OpenVue and Tailwind." />
     </Head>
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
                 <h1>Installation with Vite</h1>
-                <p>Setting up Volt in a Vite project with OpenVue and Tailwind.</p>
+                <p>Setting up OpenVolt in a Vite project with OpenVue and Tailwind.</p>
             </div>
             <DocSections :docs="docs" />
         </div>

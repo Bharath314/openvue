@@ -17,7 +17,7 @@
                             </span>
                             <span class="font-semibold text-surface-950 dark:text-surface-0">50+ Components</span>
                         </div>
-                        <span class="text-muted-color">A comprehesive UI component suite crafted with TypeScript to meet all your requirements.</span>
+                        <span class="text-muted-color">A comprehensive UI component suite crafted with TypeScript to meet all your requirements.</span>
                     </div>
                 </div>
                 <div class="flex-1 px-6 w-full hidden lg:block">

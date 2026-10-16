@@ -12,13 +12,13 @@ import { ref } from 'vue';
 
 const code1 = ref(`
 # Using npm
-npm install openvue@rc @openvue/themes
+npm install openvue
 
 # Using yarn
-yarn add openvue@rc @openvue/themes
+yarn add openvue
 
 # Using pnpm
-pnpm add openvue@rc @openvue/themes
+pnpm add openvue
 `);
 
 const code2 = ref(`import { createApp } from 'vue';

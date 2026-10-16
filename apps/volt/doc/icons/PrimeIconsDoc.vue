@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            <a href="https://openvue.dev/icons/">OpenIcons</a> is the default icon library of OpenVue with over 300 open source icons maintained by the OpenVi Foundation. Volt uses the OpenIcons as Vue components instead of the font icons format to avoid
-            importing the entire icon suite assets including the font files and styles. For example <i>ChevronDown</i> component is used instead of <i>pi pi-chevron-down</i>.
+            <a href="https://openvue.dev/icons/">OpenIcons</a> is the default icon library of OpenVue with over 300 open source icons maintained by the OpenVi Foundation. OpenVolt uses the OpenIcons as Vue components instead of the font icons format
+            to avoid importing the entire icon suite assets including the font files and styles. For example <i>ChevronDown</i> component is used instead of <i>pi pi-chevron-down</i>.
         </p>
         <p>An icon is customized with templating, example below changes the dropdown icon of a Select in <i>@/volt/select/index.vue</i>.</p>
     </DocSectionText>

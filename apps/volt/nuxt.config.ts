@@ -53,7 +53,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 class: 'p-noir'
             },
-            title: 'Volt UI Component Library for Vue.js',
+            title: 'OpenVolt Component Library for Vue.js',
             meta: [
                 { charset: 'utf-8' },
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -65,7 +65,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:description', content: 'Build your own UI library with the flexibility of Tailwind CSS and the convenience of OpenVue components.' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:title', content: 'Tailwind CSS based Vue UI Component Library' },
-                { property: 'og:url', content: 'https://volt.openvue.dev/' },
+                { property: 'og:url', content: 'https://openvolt.openvue.dev/' },
                 { property: 'og:description', content: 'Build your own UI library with the flexibility of Tailwind CSS and the convenience of OpenVue components.' },
                 { property: 'og:image', content: 'https://www.openvue.dev/static/social/volt.jpg' },
                 { property: 'og:ttl', content: '604800' }
