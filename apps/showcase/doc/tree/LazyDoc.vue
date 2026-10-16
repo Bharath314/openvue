@@ -55,7 +55,7 @@ export default {
                         });
                     }
 
-                    let _nodes = { ...this.nodes };
+                    let _nodes = [...this.nodes];
 
                     _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
@@ -126,7 +126,7 @@ const onNodeExpand = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes.value };
+            let _nodes = [...nodes.value];
 
             _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
@@ -186,7 +186,7 @@ const initiateNodes = () => {
                         });
                     }
 
-                    let _nodes = { ...this.nodes };
+                    let _nodes = [...this.nodes];
 
                     _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 

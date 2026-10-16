@@ -216,7 +216,7 @@ const onNodeExpand = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes.value };
+            let _nodes = [...nodes.value];
 
             _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
