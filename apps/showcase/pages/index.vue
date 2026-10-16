@@ -1,13 +1,9 @@
 <template>
     <div :class="containerClass">
         <!--<AppNews />-->
-        <AppTopBar @menubutton-click="onMenuButtonClick" />
-        <Transition name="px-modal">
-            <div v-if="sidebarActive" class="layout-mask" @click="onMaskClick"></div>
-        </Transition>
-        <app-menu :active="sidebarActive" />
+        <AppTopBar :showDesigner="false" />
         <HeroSection />
-        <ForkNoticeSection />
+        <MigrationSection />
         <FeaturesSection />
         <ThemeSection />
         <TemplatesSection />
@@ -17,10 +13,9 @@
 </template>
 
 <script>
-import { blockBodyScroll, unblockBodyScroll } from '@openuxkit/utils/dom';
 import pkg from '../../../packages/primevue/package.json';
 import FeaturesSection from '@/components/landing/FeaturesSection.vue';
-import ForkNoticeSection from '@/components/landing/ForkNoticeSection.vue';
+import MigrationSection from '@/components/landing/MigrationSection.vue';
 import HeroSection from '@/components/landing/HeroSection.vue';
 import TemplatesSection from '@/components/landing/TemplatesSection.vue';
 import ThemeSection from '@/components/landing/ThemeSection.vue';
@@ -35,7 +30,7 @@ export default {
            library, and people looking for where PrimeVue went. The title names both. */
         useSeo({
             title: 'OpenVue - Vue UI Components, MIT PrimeVue Fork',
-            description: '80+ accessible, themeable components for Vue 3 and Nuxt. OpenVue continues PrimeVue 4.5.5 under the MIT license with the same API, themes and pass-through styling.',
+            description: '80+ accessible, themeable components for Vue 3 and Nuxt. OpenVue is a fork of PrimeVue 4.5.5, MIT licensed, with the same API, themes and pass-through styling.',
             path: '/',
             jsonLd: {
                 '@context': 'https://schema.org',
@@ -70,7 +65,7 @@ export default {
                         downloadUrl: 'https://www.npmjs.com/package/openvue',
                         softwareVersion: pkg.version,
                         license: 'https://opensource.org/licenses/MIT',
-                        description: 'MIT-licensed UI component library for Vue 3 and Nuxt, continuing PrimeVue 4.5.5.',
+                        description: 'MIT-licensed UI component library for Vue 3 and Nuxt, forked from PrimeVue 4.5.5.',
                         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
                     }
                 ]
@@ -83,25 +78,6 @@ export default {
             default: null
         }
     },
-    data() {
-        return {
-            sidebarActive: false
-        };
-    },
-    methods: {
-        onMenuButtonClick() {
-            if (this.sidebarActive) {
-                this.onMaskClick();
-            } else {
-                this.sidebarActive = true;
-                blockBodyScroll('blocked-scroll');
-            }
-        },
-        onMaskClick() {
-            this.sidebarActive = false;
-            unblockBodyScroll('blocked-scroll');
-        }
-    },
     computed: {
         containerClass() {
             return ['landing', { 'layout-news-active': this.$appState?.newsActive }];
@@ -109,7 +85,7 @@ export default {
     },
     components: {
         HeroSection,
-        ForkNoticeSection,
+        MigrationSection,
         ThemeSection,
         TemplatesSection,
         FeaturesSection

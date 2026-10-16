@@ -1,6 +1,6 @@
 {
     "name": "@openvue/monorepo",
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0",
     "author": "OpenVue Contributors",
     "homepage": "https://github.com/openvi-foundation/openvue",
     "repository": {
@@ -38,7 +38,7 @@
         "build:showcase": "pnpm --filter showcase build",
         "build:llm": "pnpm --filter showcase build:llmdocs",
         "build:volt": "pnpm --filter volt build",
-        "build:apidoc": "pnpm --filter themes build:tokens && pnpm --filter showcase build:apidoc",
+        "build:apidoc": "pnpm --filter showcase build:apidoc",
         "dev": "pnpm --filter showcase dev",
         "preview": "pnpm --filter showcase preview",
         "hot:dev": "DEV_ENV=hot pnpm --filter showcase dev",
@@ -54,6 +54,7 @@
         "test:contracts": "pnpm run test:artifacts:pack && pnpm run verify:dist && node scripts/verify-package-contracts.mjs",
         "test:artifacts:pack": "node scripts/run-consumer-tests.mjs --pack-only",
         "test:consumers": "node scripts/run-consumer-tests.mjs",
+        "test:designer-smoke": "node scripts/designer-smoke.mjs",
         "test:consumers:browser": "node scripts/run-consumer-tests.mjs --browser"
     },
     "devDependencies": {
@@ -83,12 +84,15 @@
     },
     "pnpm": {
         "overrides": {
-            "fast-uri": ">=4.1.4",
-            "hono": ">=4.12.25",
-            "ip-address": ">=10.3.1",
+            "fast-uri": ">=4.1.5",
+            "hono": ">=4.13.7",
+            "ip-address": ">=10.7.1",
             "@vue/devtools-core>nanoid": ">=5.1.16 <6",
             "postcss>nanoid": ">=3.3.18 <4",
-            "postcss": ">=8.5.18"
+            "postcss": ">=8.5.18",
+            "@modelcontextprotocol/sdk": ">=1.31.0 <2",
+            "proxy-addr": ">=2.0.8 <3",
+            "source-map-js": ">=1.2.2 <2"
         },
         "auditConfig": {
             "ignoreGhsas": [
@@ -112,6 +116,7 @@
                 "GHSA-qffp-2rhf-9h96",
                 "GHSA-r6q2-hw4h-h46w",
                 "GHSA-v56q-mh7h-f735",
+                "GHSA-vfj7-8cjw-p6xm",
                 "GHSA-w7jw-789q-3m8p",
                 "GHSA-xvcm-6775-5m9r"
             ]

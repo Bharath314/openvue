@@ -1,6 +1,6 @@
 {
     "name": "volt",
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0",
     "private": true,
     "author": "OpenVue Contributors",
     "description": "",
@@ -37,15 +37,14 @@
         "typecheck": "vue-tsc --noEmit"
     },
     "dependencies": {
-        "@docsearch/js": "catalog:app",
-        "@openvue/themes": "1.0.0-rc.0",
+        "@openvue/themes": "workspace:*",
         "chart.js": "catalog:app",
-        "openvue": "*",
+        "openvue": "workspace:*",
         "primeicons": "catalog:",
         "quill": "catalog:app"
     },
     "devDependencies": {
-        "@openvue/nuxt-module": "1.0.0-rc.0",
+        "@openvue/nuxt-module": "workspace:*",
         "@stackblitz/sdk": "^1.8.2",
         "@tailwindcss/vite": "^4",
         "autoprefixer": "^10",

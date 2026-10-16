@@ -31,9 +31,6 @@
             </div>
 
             <ul class="topbar-items">
-                <li v-if="false">
-                    <div id="docsearch"></div>
-                </li>
                 <li>
                     <a href="https://github.com/openvi-foundation/openvue/tree/master/apps/volt/volt" target="_blank" rel="noopener noreferrer" class="topbar-item">
                         <i class="pi pi-github"></i>

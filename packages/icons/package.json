@@ -1,9 +1,19 @@
 {
     "name": "@openvue/icons",
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0",
     "author": "OpenVue Contributors",
-    "description": "",
-    "homepage": "https://github.com/openvi-foundation/openvue",
+    "description": "SVG icon components used internally by OpenVue components.",
+    "keywords": [
+        "openvue",
+        "vue",
+        "vue3",
+        "nuxt",
+        "primevue",
+        "primevue alternative",
+        "icons",
+        "svg"
+    ],
+    "homepage": "https://openvue.dev",
     "license": "MIT",
     "repository": {
         "type": "git",

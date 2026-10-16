@@ -1,12 +1,9 @@
 <template>
     <div :class="containerClass" :data-p-theme="$appState.theme">
         <!--<AppNews />-->
-        <AppTopBar @menubutton-click="onMenuButtonClick" />
-        <Transition name="px-modal">
-            <div v-if="sidebarActive" class="layout-mask" @click="onMaskClick"></div>
-        </Transition>
+        <AppTopBar />
         <div class="layout-content">
-            <app-menu :active="sidebarActive" />
+            <app-menu />
             <div class="layout-content-slot">
                 <slot></slot>
             </div>
@@ -16,18 +13,14 @@
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
         <Toast position="bottom-right" group="br" />
+        <ClientOnly>
+            <AppDesigner />
+        </ClientOnly>
     </div>
 </template>
 
 <script>
-import { blockBodyScroll, unblockBodyScroll } from '@openuxkit/utils/dom';
-
 export default {
-    data() {
-        return {
-            sidebarActive: false
-        };
-    },
     watch: {
         $route: {
             immediate: true,
@@ -36,26 +29,11 @@ export default {
                     return;
                 }
 
-                this.sidebarActive = false;
-                unblockBodyScroll('blocked-scroll');
                 this.$toast.removeAllGroups();
             }
         }
     },
     methods: {
-        onMenuButtonClick() {
-            if (this.sidebarActive) {
-                this.sidebarActive = false;
-                unblockBodyScroll('blocked-scroll');
-            } else {
-                this.sidebarActive = true;
-                blockBodyScroll('blocked-scroll');
-            }
-        },
-        onMaskClick() {
-            this.sidebarActive = false;
-            unblockBodyScroll('blocked-scroll');
-        },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;
 

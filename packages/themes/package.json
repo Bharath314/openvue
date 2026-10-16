@@ -1,9 +1,22 @@
 {
     "name": "@openvue/themes",
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0",
     "author": "OpenVue Contributors",
-    "description": "",
-    "homepage": "https://github.com/openvi-foundation/openvue",
+    "description": "Design-token theme presets for OpenVue, including Aura, Lara, Material and Nora.",
+    "keywords": [
+        "openvue",
+        "vue",
+        "vue3",
+        "nuxt",
+        "primevue",
+        "primevue alternative",
+        "themes",
+        "design tokens",
+        "theming",
+        "aura",
+        "material"
+    ],
+    "homepage": "https://openvue.dev",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -77,8 +90,7 @@
     },
     "scripts": {
         "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
-        "build:package": "pnpm run build:prebuild && pnpm run build:tokens && rollup -c && pnpm run build:postbuild",
-        "build:tokens": "node ./scripts/build-tokens.js",
+        "build:package": "pnpm run build:prebuild && rollup -c && pnpm run build:postbuild",
         "build:prebuild": "node ./scripts/prebuild.mjs",
         "build:postbuild": "node ./scripts/postbuild.mjs",
         "dev:link": "pnpm link --global && npm link"

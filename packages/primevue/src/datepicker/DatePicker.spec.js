@@ -121,4 +121,110 @@ describe('DatePicker.vue', () => {
 
         expect(wrapper.find('.p-datepicker-decade').text()).toBe('1980 - 1989');
     });
+
+    it('should populate the time when typing a 24-hour value', async () => {
+        await wrapper.setProps({ showTime: true, hourFormat: '24' });
+
+        const input = wrapper.find('.p-datepicker-input');
+
+        await input.setValue('06/15/1988 14:30');
+
+        const emitted = wrapper.emitted('update:modelValue');
+
+        expect(emitted).toBeTruthy();
+
+        const value = emitted[emitted.length - 1][0];
+
+        expect(value.getHours()).toBe(14);
+        expect(value.getMinutes()).toBe(30);
+        expect(wrapper.vm.pm).toBeNull();
+    });
+
+    it('should populate the time when typing a 12-hour value', async () => {
+        await wrapper.setProps({ showTime: true, hourFormat: '12' });
+
+        const input = wrapper.find('.p-datepicker-input');
+
+        await input.setValue('06/15/1988 02:30 PM');
+
+        const emitted = wrapper.emitted('update:modelValue');
+
+        expect(emitted).toBeTruthy();
+
+        const value = emitted[emitted.length - 1][0];
+
+        expect(value.getHours()).toBe(14);
+        expect(value.getMinutes()).toBe(30);
+        expect(wrapper.vm.pm).toBe(true);
+    });
+
+    describe('navigator button aria-labels', () => {
+        const prevLabel = () => wrapper.find('.p-datepicker-prev-button').attributes('aria-label');
+        const nextLabel = () => wrapper.find('.p-datepicker-next-button').attributes('aria-label');
+
+        beforeEach(async () => {
+            await wrapper.setProps({ inline: true });
+            await wrapper.setData({ currentMonth: 0, currentYear: 2026 });
+        });
+
+        it('should include the target month in date view', () => {
+            expect(prevLabel()).toBe('Previous Month, December 2025');
+            expect(nextLabel()).toBe('Next Month, February 2026');
+        });
+
+        it('should include the target year in month view', async () => {
+            await wrapper.setData({ currentView: 'month' });
+
+            expect(prevLabel()).toBe('Previous Year, 2025');
+            expect(nextLabel()).toBe('Next Year, 2027');
+        });
+
+        it('should include the target decade in year view', async () => {
+            await wrapper.setData({ currentView: 'year' });
+
+            expect(prevLabel()).toBe('Previous Decade, 2010 - 2019');
+            expect(nextLabel()).toBe('Next Decade, 2030 - 2039');
+        });
+
+        it('should include the target months in multiple months view', async () => {
+            await wrapper.setProps({ numberOfMonths: 2 });
+
+            expect(prevLabel()).toBe('Previous Month, December 2025');
+            expect(nextLabel()).toBe('Next Month, March 2026');
+        });
+
+        it('should update after navigating', async () => {
+            await wrapper.find('.p-datepicker-next-button').trigger('click');
+
+            expect(prevLabel()).toBe('Previous Month, January 2026');
+            expect(nextLabel()).toBe('Next Month, March 2026');
+        });
+    });
+
+    describe('time picker live region', () => {
+        const liveTime = () => wrapper.find('.p-datepicker-time-picker [aria-live="polite"]');
+
+        beforeEach(async () => {
+            await wrapper.setProps({ inline: true, showTime: true });
+            await wrapper.setData({ currentHour: 9, currentMinute: 5 });
+        });
+
+        it('should announce the current time', () => {
+            expect(liveTime().exists()).toBe(true);
+            expect(liveTime().text()).toBe('09:05');
+        });
+
+        it('should include seconds and am/pm when shown', async () => {
+            await wrapper.setProps({ showSeconds: true, hourFormat: '12' });
+            await wrapper.setData({ currentSecond: 7, pm: true });
+
+            expect(liveTime().text()).toBe('09:05:07 pm');
+        });
+
+        it('should update when the time changes', async () => {
+            await wrapper.setData({ currentHour: 10 });
+
+            expect(liveTime().text()).toBe('10:05');
+        });
+    });
 });

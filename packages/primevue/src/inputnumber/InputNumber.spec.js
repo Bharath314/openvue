@@ -1,4 +1,6 @@
+import Form from '@openvue/forms/form';
 import { mount } from '@vue/test-utils';
+import { h, nextTick } from 'vue';
 import InputNumber from './InputNumber.vue';
 
 describe('InputNumber.vue', () => {
@@ -91,5 +93,129 @@ describe('InputNumber.vue', () => {
         await wrapper.setProps({ modelValue: 20, prefix: '%' });
 
         expect(wrapper.find('input.p-inputnumber-input').element._value).toBe('%20');
+    });
+
+    describe('typing over initial zero', () => {
+        const type = async (input, key) => {
+            await wrapper.vm.onInputKeyPress({ key, preventDefault: () => {} });
+
+            return { value: input.value, caret: input.selectionStart };
+        };
+
+        it('should keep multi char suffix when typing digits after zero', async () => {
+            await wrapper.setProps({ modelValue: 0, suffix: ' kg' });
+
+            const input = wrapper.find('input.p-inputnumber-input').element;
+
+            expect(input.value).toBe('0 kg');
+
+            input.setSelectionRange(1, 1);
+
+            expect(await type(input, '1')).toEqual({ value: '1 kg', caret: 1 });
+            expect(await type(input, '2')).toEqual({ value: '12 kg', caret: 2 });
+            expect(await type(input, '3')).toEqual({ value: '123 kg', caret: 3 });
+            expect(wrapper.emitted().input.map(([e]) => e.value)).toEqual([1, 12, 123]);
+        });
+
+        it('should keep multi char prefix and suffix when typing digits after zero', async () => {
+            await wrapper.setProps({ modelValue: 0, prefix: '$ ', suffix: ' kg' });
+
+            const input = wrapper.find('input.p-inputnumber-input').element;
+
+            expect(input.value).toBe('$ 0 kg');
+
+            input.setSelectionRange(3, 3);
+
+            expect(await type(input, '1')).toEqual({ value: '$ 1 kg', caret: 3 });
+            expect(await type(input, '2')).toEqual({ value: '$ 12 kg', caret: 4 });
+            expect(wrapper.emitted().input.map(([e]) => e.value)).toEqual([1, 12]);
+        });
+
+        it('should keep typing into the integer part of a currency value', async () => {
+            await wrapper.setProps({ modelValue: 0, mode: 'currency', currency: 'USD', locale: 'en-US' });
+
+            const input = wrapper.find('input.p-inputnumber-input').element;
+
+            expect(input.value).toBe('$0.00');
+
+            input.setSelectionRange(2, 2);
+
+            expect(await type(input, '1')).toEqual({ value: '$1.00', caret: 2 });
+            expect(await type(input, '2')).toEqual({ value: '$12.00', caret: 3 });
+            expect(await type(input, '5')).toEqual({ value: '$125.00', caret: 4 });
+            expect(await type(input, '0')).toEqual({ value: '$1,250.00', caret: 6 });
+            expect(wrapper.emitted().input.map(([e]) => e.value)).toEqual([1, 12, 125, 1250]);
+        });
+
+        it('should place caret after typed digit with single char suffix', async () => {
+            await wrapper.setProps({ modelValue: 0, suffix: '%' });
+
+            const input = wrapper.find('input.p-inputnumber-input').element;
+
+            input.setSelectionRange(1, 1);
+
+            expect(await type(input, '1')).toEqual({ value: '1%', caret: 1 });
+            expect(await type(input, '2')).toEqual({ value: '12%', caret: 2 });
+        });
+
+        it('should still advance caret when overwriting fraction digits', async () => {
+            await wrapper.setProps({ modelValue: 1, minFractionDigits: 2, maxFractionDigits: 2, locale: 'en-US', suffix: ' kg' });
+
+            const input = wrapper.find('input.p-inputnumber-input').element;
+
+            expect(input.value).toBe('1.00 kg');
+
+            input.setSelectionRange(2, 2);
+
+            expect(await type(input, '5')).toEqual({ value: '1.50 kg', caret: 3 });
+            expect(await type(input, '7')).toEqual({ value: '1.57 kg', caret: 4 });
+        });
+    });
+
+    describe('inside Form with initialValues', () => {
+        let formWrapper;
+
+        beforeEach(() => {
+            formWrapper = mount({ render: () => h(Form, { initialValues: { amount: 555 } }, () => h(InputNumber, { name: 'amount' })) }, { attachTo: document.body });
+        });
+
+        afterEach(() => {
+            formWrapper.unmount();
+        });
+
+        it('should stay empty after deleting the last character', async () => {
+            const inputNumber = formWrapper.findComponent(InputNumber);
+            const input = formWrapper.find('input.p-inputnumber-input').element;
+
+            expect(input.value).toBe('555');
+
+            for (const expected of ['55', '5', '']) {
+                input.setSelectionRange(input.value.length, input.value.length);
+                await inputNumber.vm.onInputKeyDown({ code: 'Backspace', target: input, preventDefault: () => {} });
+                await nextTick();
+
+                expect(input.value).toBe(expected);
+            }
+
+            await inputNumber.vm.onInputBlur({ target: input });
+            await nextTick();
+
+            expect(input.value).toBe('');
+        });
+
+        it('should match standalone v-model behavior when deleting the last character', async () => {
+            const standalone = mount(InputNumber, { props: { modelValue: 555 }, attachTo: document.body });
+            const input = standalone.find('input.p-inputnumber-input').element;
+
+            for (let i = 0; i < 3; i++) {
+                input.setSelectionRange(input.value.length, input.value.length);
+                await standalone.vm.onInputKeyDown({ code: 'Backspace', target: input, preventDefault: () => {} });
+                await nextTick();
+            }
+
+            expect(input.value).toBe('');
+
+            standalone.unmount();
+        });
     });
 });

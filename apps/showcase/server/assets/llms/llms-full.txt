@@ -1,6 +1,6 @@
-# PrimeVue Documentation
+# OpenVue Documentation
 
-Generated: 2026-08-29
+Generated: 2026-10-16
 
 ---
 
@@ -8,7 +8,7 @@ Generated: 2026-08-29
 
 # Introduction
 
-The Vue UI component library, continued.
+A community-maintained fork of PrimeVue for Vue 3 and Nuxt.
 
 ## Accessibility
 
@@ -24,7 +24,7 @@ npx @openvue/migrate
 
 ## Overview
 
-OpenVue is a complete UI suite for Vue.js, consisting of a rich set of components that are easy to tune and customize as an in-house library. The library is a community-maintained continuation of PrimeVue, picked up after it was archived by its original maintainers. Everything you know from PrimeVue v4 is here, under a name and a maintenance path that are not tied to a single company. OpenVue is not affiliated with PrimeTek or PrimeUI. Development is led by Openvi Foundation , an independent organization of developers who run this library in production. Every component is MIT licensed, with no paid tier and nothing held back.
+OpenVue is a complete UI suite for Vue.js, consisting of a rich set of components that are easy to tune and customize as an in-house library. The library is a community-maintained fork of PrimeVue 4.5.5, started after its original maintainers ended active open source development and moved new releases to a commercial license. Everything you know from PrimeVue v4 is here, under a name and a maintenance path that are not tied to a single company. OpenVue is not affiliated with PrimeTek or PrimeUI. Development is led by Openvi Foundation , an independent organization of developers who run this library in production. Every component is MIT licensed, with no paid tier and nothing held back.
 
 ## Pass Through
 
@@ -1446,17 +1446,17 @@ Setting up OpenVue in a Laravel project.
 
 ## Download
 
-OpenVue is available for download on npm registry . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
+OpenVue is available for download on npm registry . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
 
 ```vue
 # Using npm
-npm install openvue@rc @openvue/themes
+npm install openvue @openvue/themes
 
 # Using yarn
-yarn add openvue@rc @openvue/themes
+yarn add openvue @openvue/themes
 
 # Using pnpm
-pnpm add openvue@rc @openvue/themes
+pnpm add openvue @openvue/themes
 ```
 
 ## Examples
@@ -1465,7 +1465,7 @@ We've created various samples for the popular options in the Vue ecosystem. Visi
 
 ## Next Steps
 
-Welcome to the Openvi! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
+Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
 
 ## Plugin
 
@@ -1532,7 +1532,7 @@ If you just want to evaluate OpenVue first, add an override yourself instead of 
 ```vue
 {
     "overrides": {
-        "primevue": "npm:openvue@1.0.0-rc.0"
+        "primevue": "npm:openvue@1.0.0"
     }
 }
 ```
@@ -1555,6 +1555,59 @@ Is OpenVue a drop-in replacement for PrimeVue? Yes. OpenVue is a fork of PrimeVu
 
 ---
 
+# PrimeVue Alternative
+
+PrimeVue 5 ships under a commercial license, and PrimeVue 4 now gets security fixes only. OpenVue keeps the PrimeVue 4 line alive with the same components and API, MIT licensed and actively maintained. Your code stays as it is.
+
+## What Changes
+
+OpenVue starts from the PrimeVue 4.5.5 source, so moving over is a rename rather than a rewrite. Stays the same Changes Component names, props, events and slots primevue becomes openvue usePrimeVue , PrimeVueResolver and the primevue Nuxt config key @primevue/* packages become @openvue/* p- prefixed CSS classes, pass-through options and unstyled mode PrimeIcons is replaced by OpenIcons , with a compatibility stylesheet that keeps pi pi-* classes working Aura, Lara and Nora theme presets and design tokens Theme presets are imported from @openvue/themes
+
+## Will OpenVue Last?
+
+It's the right question to ask about any fork. Here is what protects you. Run by people who depend on it. OpenVue is maintained by the Openvi Foundation , developers who run this library in production themselves, together with outside contributors whose fixes are credited in every release. The whole stack is open. The theming engine and the icon set are maintained alongside the components, and OpenVue has no runtime dependency on any PrimeTek package. Your worst case is fine. Everything is MIT. Whatever happens, the version you install keeps working, and anyone can pick the code up and continue it, the same way OpenVue continued PrimeVue 4. Everything happens in public. Issues, pull requests and decisions are on GitHub , so you can judge the project's health yourself at any time.
+
+## Trademark Notice
+
+PrimeVue, PrimeUI and PrimeTek are trademarks of their respective owner. OpenVue is an independent community fork and is not affiliated with, sponsored by or endorsed by PrimeTek. The names are used only to identify the software that OpenVue is forked from and compared with. Facts on this page come from PrimeTek's public announcements and the npm registry. Tell us through GitHub issues if anything is out of date.
+
+## Compare Your Options
+
+If you run PrimeVue 4 today, you have three realistic paths. Stay on PrimeVue 4.5.5 Upgrade to PrimeVue 5 Switch to OpenVue License MIT PrimeUI license MIT Cost Free Paid per developer, free Community tier for eligible small organizations Free Updates Security fixes only Active, by PrimeTek Active, by the community Effort None A major version upgrade One command PrimeVue 5 is a good fit if you want vendor support and the PrimeUI license works for your organization. Check primeui.dev for current terms. Staying on 4.5.5 works for apps that are finished, but bugs you hit there will stay unfixed. OpenVue is for teams that want to keep their code, keep MIT and keep getting fixes.
+
+## Shipped Since the Fork
+
+A fork is only worth switching to if it keeps shipping. Here are a few highlights from the changelog . Theme Designer, free. Edit every design token visually, watch the docs restyle as you type, and export a preset. No account, no license key, runs entirely in your browser. #655 TreeTable filtering. The filter row and multi-rule filter menu that DataTable already had, styled in all four presets. #638 Variable-height virtual scrolling. VirtualScroller accepts a getItemSize callback, so lists with rows of different heights can be virtualized, and DataTable row groups now work with virtual scrolling. #621 DataTable column widths that stick. Resized widths stay with the right column when columns are hidden or shown, and after a reload. #627 InputNumber typing fixes. Typing after a leading 0 no longer clears the field or shifts currency values. #665 Accessibility fixes. Menu components no longer announce a bogus nesting level to screen readers. #645 AI-ready docs. An MCP server and llms.txt give coding assistants accurate props, events and slots for every component. You can see the result live in the Theme Designer and in Deni , a full application template built on OpenVue.
+
+## Try It Without Risk
+
+You don't have to commit to anything to find out whether OpenVue works for your app. Test it with zero code changes. Add a package override so your existing primevue imports resolve to OpenVue, run your app and your tests. Delete the override to go back. Preview the migration. npx @openvue/migrate --dry lists every file and dependency it would change, and writes nothing. Migrate for real. npx @openvue/migrate asks before writing, and the result is one git diff you can review and revert like any other change.
+
+```vue
+// 1. try OpenVue without touching your code (package.json, npm and bun)
+{
+    "overrides": {
+        "primevue": "npm:openvue@1.0.0"
+    }
+}
+
+// 2. preview what the migration changes
+npx @openvue/migrate --dry
+
+// 3. migrate
+npx @openvue/migrate
+```
+
+## Why Teams Switch
+
+Nothing to rewrite Same components, props, events, slots, pass-through and themes as PrimeVue 4.5.5. Switching is a package rename that one command does for you. MIT, no license fees No per-developer pricing, no revenue limits, no license keys. Every package is MIT, and a license change elsewhere cannot reach code you already have. Still moving forward Ten releases since July 2026, a stable 1.0 in September, and fixes and features landing every few weeks from a growing group of contributors.
+
+## FAQ
+
+Is OpenVue a drop-in replacement for PrimeVue 4? Yes. OpenVue is a fork of PrimeVue 4.5.5 with the same components and public API. Switching renames packages and imports, and @openvue/migrate does that for you in one command. Is OpenVue free for commercial use? Yes. OpenVue is MIT licensed, with no paid tier, no per-developer fee and no revenue limits. Does OpenVue work with Nuxt and Tailwind CSS? Yes. The Nuxt module auto-imports components and works with SSR, and OpenVue integrates with Tailwind CSS in both styled and unstyled modes. Can I migrate a PrimeVue 5 project? The migration tool supports PrimeVue 4.x projects only, since 4.5.5 is the fork point. Projects on version 5 need to be checked by hand. Who maintains OpenVue? The Openvi Foundation , an independent group of developers who use the library in production, together with outside contributors. OpenVue is not affiliated with PrimeTek.
+
+---
+
 # Install OpenVue with Nuxt
 
 Setting up OpenVue in a Nuxt project.
@@ -1565,20 +1618,20 @@ The auto import feature registers components automatically with tree shaking sup
 
 ## Download
 
-OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
+OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
 
 ```vue
 # Using npm
-npm install openvue@rc @openvue/themes
-npm install --save-dev @openvue/nuxt-module@rc
+npm install openvue @openvue/themes
+npm install --save-dev @openvue/nuxt-module
 
 # Using yarn
-yarn add openvue@rc @openvue/themes
-yarn add --dev @openvue/nuxt-module@rc
+yarn add openvue @openvue/themes
+yarn add --dev @openvue/nuxt-module
 
 # Using pnpm
-pnpm add openvue@rc @openvue/themes
-pnpm add -D @openvue/nuxt-module@rc
+pnpm add openvue @openvue/themes
+pnpm add -D @openvue/nuxt-module
 ```
 
 ## Examples
@@ -1591,7 +1644,7 @@ In nuxt.config file, add the @openvue/nuxt-module to the modules section and def
 
 ## Next Steps
 
-Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes
+Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes
 
 ## Styled Mode
 
@@ -1696,17 +1749,17 @@ Setting up OpenVue in a Vite project.
 
 ## Download
 
-OpenVue is available for download on npm registry . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
+OpenVue is available for download on npm registry . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
 
 ```vue
 # Using npm
-npm install openvue@rc @openvue/themes
+npm install openvue @openvue/themes
 
 # Using yarn
-yarn add openvue@rc @openvue/themes
+yarn add openvue @openvue/themes
 
 # Using pnpm
-pnpm add openvue@rc @openvue/themes
+pnpm add openvue @openvue/themes
 ```
 
 ## Examples
@@ -1715,7 +1768,7 @@ We've created various samples for the popular options in the Vue ecosystem. Visi
 
 ## Next Steps
 
-Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
+Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
 
 ## Plugin
 
@@ -1756,6 +1809,50 @@ import Button from "openvue/button"
 const app = createApp(App);
 app.component('Button', Button);
 ```
+
+---
+
+# Theme Designer
+
+Design a theme visually and export it as ready-to-use code. Free, MIT-licensed, and entirely local.
+
+## Visual Editor
+
+The editor is organised by token collection, matching the theming architecture. Primitive — the raw palettes and border radii. Values here are plain colours and lengths, referenced by everything else. Semantic — roles such as primary , formField and the light and dark colour schemes. Most theming work happens here. Component — tokens for one component at a time. This tab activates on a component's documentation page and selects that component automatically. Custom — your own tokens, added under extend . Use dot-separated lowercase names such as accent.color . Settings — preview typography, theme validation and the migration assistant. Any field accepts either a literal value or a reference to another token in curly braces. Typing an opening brace opens autocompletion over every token in the current theme. Fields whose value resolves to a colour show a swatch, and the sort icon moves a token between the shared section and the light or dark colour scheme. Edits apply live to the whole site, so you are previewing on real components rather than a mock screen. Undo and redo are available with Ctrl+Z and Ctrl+Shift+Z while the editor is open.
+
+## Export and Sharing
+
+The Export menu in the editor footer offers three files and a share link. TypeScript preset — a .ts module exporting your theme, with the overrides annotated satisfies Preset . JavaScript preset — the same module without the type annotations. Theme JSON — a portable document you can re-import later or hand to a teammate. Share link — a URL that reconstructs the theme. The theme travels in the URL fragment, which browsers never send to a server. By default the preset export contains only what you actually changed, expressed as a definePreset call against your base theme. That keeps the file small and means your theme keeps inheriting improvements to the base preset. A full-preset export is available if you would rather vendor a complete snapshot. Typography is deliberately excluded from the generated preset. Font family and root font size are preview conveniences that belong at the document level in your application, so the export records them as a comment instead. Exports are blocked while the theme contains unresolved token references or a reference cycle, because both produce CSS that silently fails to render. Run Check Theme in Settings to see the details.
+
+```vue
+import { definePreset } from '@openvue/themes';
+import Aura from '@openvue/themes/aura';
+import type { Preset } from '@openvue/themes';
+
+const overrides = {
+    semantic: {
+        primary: {
+            color: '{blue.500}'
+        }
+    }
+} satisfies Preset;
+
+export const MyTheme = definePreset(Aura, overrides);
+
+export default MyTheme;
+```
+
+## Migration Assistant
+
+OpenVue adds design tokens as it evolves. A theme created against an earlier release is missing those tokens, which leaves the affected components falling back to unset values. The migration assistant in the Settings tab compares your theme against the current version of its base preset and reports what is missing. Check for Updates lists the missing token paths without changing anything. Migrate then adds them, using the base preset's value for each. It only ever adds: a token you have already customised is never overwritten, so migrating is safe to run at any time and does nothing on a theme that is already current. Newly added tokens carry the base theme's values, which may not suit your design. After migrating, visit the relevant sections and adjust them. Exporting a copy first is still a reasonable habit, and unlike the hosted tools this comparison runs entirely in your browser.
+
+## Overview
+
+The Theme Designer is a visual editor for the OpenVue theming API. Pick a built-in preset as a foundation, edit primitive, semantic and per-component design tokens, watch the entire documentation site restyle as you type, then export the result as a preset file you can drop into your application. It is part of OpenVue and licensed MIT, like the rest of the library. There is no account, no license key, no theme limit and no paid tier. Open it from the icon in the top bar on any page. The designer edits a preset , the same object you would otherwise hand-write and pass to definePreset . Nothing it produces is designer-specific: an exported theme is ordinary source code with no runtime dependency on this tool.
+
+## Privacy and Storage
+
+The designer makes no network requests. Themes are stored in this browser's local storage under the openvue-designer key, and every export, share link and migration is computed on your machine. Nothing is uploaded, and there is no server that could receive it. The practical consequence is that your themes are tied to this browser on this device. Clearing site data removes them. Export a theme as JSON to keep a durable copy, move it to another machine, or commit it alongside your project. Local storage is finite. If it fills up, or if the browser blocks it in a private window, the designer keeps working for the current session and tells you that changes are not being persisted — export your work when you see that warning. Imported files and share links are treated as untrusted input: they are size-limited, checked for a valid schema version, rejected if they contain unsafe object keys, and never executed. A downloaded preset is inert source code that you review like any other dependency.
 
 ---
 
@@ -1926,7 +2023,7 @@ OpenVue is a community-driven project and we appreciate any help you can provide
 
 ## Introduction
 
-OpenVue is an open source Vue UI component library, and a community-maintained continuation of PrimeVue after it was archived by its original maintainers. It is led by openvi-foundation , an independent group of developers who run this library in production and intend to keep it maintained, stable and open. OpenVue is not affiliated with PrimeTek or PrimeUI. Contributions of every size move the library forward. A bug report with a clear reproduction, a correction to a documentation page and a pull request are all worth sending. This guide covers how to set the project up locally and how the codebase is organized. Development Setup To begin with, clone the OpenVue repository from GitHub: The repository is a pnpm workspace, so install pnpm first, then install the dependencies and run the showcase in your local environment at http://localhost:3000/ . Project Structure OpenVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase . Note that the main component package lives in packages/primevue , a folder name kept from the fork, and is published as openvue .
+OpenVue is an open source Vue UI component library, and a community-maintained fork of PrimeVue 4.5.5, started after its original maintainers ended active open source development and moved new releases to a commercial license. It is led by openvi-foundation , an independent group of developers who run this library in production and intend to keep it maintained, stable and open. OpenVue is not affiliated with PrimeTek or PrimeUI. Contributions of every size move the library forward. A bug report with a clear reproduction, a correction to a documentation page and a pull request are all worth sending. This guide covers how to set the project up locally and how the codebase is organized. Development Setup To begin with, clone the OpenVue repository from GitHub: The repository is a pnpm workspace, so install pnpm first, then install the dependencies and run the showcase in your local environment at http://localhost:3000/ . Project Structure OpenVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase . Note that the main component package lives in packages/primevue , a folder name kept from the fork, and is published as openvue .
 
 ## Key Points
 
@@ -1935,6 +2032,177 @@ The design tokens and styling system underpin the whole component library. Any c
 ## Pathway
 
 The project offers an organization structure involving contributors and the core team: Contributor Role After a certain period of frequent contributions, a community member is offered the Contributor role. On average, it may take about three months, but the exact duration can vary depending on the individual commitment. Committer Role If a contributor actively participates in the codebase and PRs, their role may be upgraded to a Committer level, providing direct commit access to the codebase.
+
+---
+
+# Changelog
+
+Every OpenVue release since the fork from PrimeVue 4.5.5, newest first. All packages ship together under one version.
+
+## Unreleased
+
+### Fixed
+
+- Fix populating time in DatePicker when using 24-hour format
+- `DatePicker` previous and next buttons now tell screen reader users where they navigate to, e.g. "Next Month, November 2026" instead of just "Next Month". The labels reuse existing locale keys, so translations need no changes. ([#679](https://github.com/openvi-foundation/openvue/pull/679))
+- `DatePicker` time picker now announces the new time to screen readers when the hour, minute, second or AM/PM changes. ([#679](https://github.com/openvi-foundation/openvue/pull/679))
+- `InputNumber` no longer changes the number you type after an initial `0`. With a suffix such as `" kg"` the second digit cleared the field, and in currency fields typing `1250` into `$0.00` gave `$1.25`. Contributed by [@AntekOlszewski](https://github.com/AntekOlszewski). ([#665](https://github.com/openvi-foundation/openvue/pull/665))
+- Fix InputMask update:modelValue emitting stale value upon clearing when unmask is set to true.
+- Inputs inside a `Form` with `initialValues` no longer jump back to the initial value when cleared. ([#686](https://github.com/openvi-foundation/openvue/pull/686))
+- Pressing tab no longer toggles options in MultiSelect. Tabbing past a MultiSelect after mount doesn't toggle the first option anymore either.
+
+## 1.0.0 - 2026-09-10
+
+The first stable release. The public API is what OpenVue commits to for the 1.x line, and the packages now publish under the `latest` dist-tag, so a plain `npm install openvue` gives you 1.0.0 instead of a prerelease. From here the project follows semantic versioning: additions go in minor releases, fixes in patch releases, and anything that breaks your code waits for 2.0.
+
+### Added
+
+- `TreeTable` gains the filtering modes `DataTable` already had. A new `filterDisplay` prop turns on either a filter row under the header (`"row"`) or a filter menu with advanced multi-constraint rules (`"menu"`), and `globalFilterFields`, `filterInputProps` and `filterButtonProps` come with it. The filter styles and their design tokens ship in every preset, so Aura, Lara, Material and Nora all style the new filter UI. ([#638](https://github.com/openvi-foundation/openvue/issues/638))
+- The Theme Designer, a visual editor for the theming API, is now part of the showcase. Pick a preset as a foundation, edit primitive, semantic and per-component tokens, watch the documentation site restyle as you type, then export the result as an ordinary preset file. It is MIT licensed like the rest of OpenVue, with no account, no license key, no theme limit and no paid tier. It makes no network requests: themes are kept in your browser's local storage and every export, share link and migration is computed on your machine. Open it from the sliders icon in the top bar. ([#655](https://github.com/openvi-foundation/openvue/pull/655))
+- Showcase: a components gallery, reachable from the landing page and the footer, with a live preview on every card.
+- Showcase: an application template, Deni.
+- The contributors who have helped build OpenVue are now credited in the README and kept up to date automatically.
+
+### Changed
+
+- `@openvue/migrate` no longer adds an automatic `primevue` -> `openvue` dependency override. It is not needed for a normal migration; add one yourself if a leftover package still requires `primevue`. ([#639](https://github.com/openvi-foundation/openvue/issues/639))
+- The `@openuxkit/styles` and `@openuxkit/themes` engine packages are upgraded to 1.1.0, which is where the TreeTable filter styles and the two `Toast` and `Image` fixes below come from.
+- Showcase: a reworked navigation bar and landing hero, the full footer on every page, and fuller SEO metadata across the site.
+- Volt: `AccordionHeader` imported its two chevron icons under each other's names, which cancelled out against a matching swap in the template. Both are corrected, so the code now says what it does. Rendering is unchanged. Contributed by [@wahpiangle](https://github.com/wahpiangle). ([#650](https://github.com/openvi-foundation/openvue/pull/650))
+
+### Fixed
+
+- `DataTable` keeps a resized column width attached to its own column when columns are hidden or shown. Widths were stored positionally, so hiding a column shifted every width after it onto the wrong column. Widths are now tracked per column, remapped as the visible set changes, and persisted that way, so a reload no longer pairs a stored width with the wrong column. A column is tracked when it has a `columnKey` or a `field` that is unique among the visible columns; grouped headers and columns that share a field keep the previous positional behaviour, and state written by earlier versions is still restored. Contributed by [@pupuking723](https://github.com/pupuking723). ([#627](https://github.com/openvi-foundation/openvue/pull/627))
+- `TreeTable` no longer sorts a column when you click that column's filter menu button. The button sits inside the sortable header, so opening a filter menu also reordered the rows underneath it.
+- `ContextMenu`, `MegaMenu`, `Menubar` and `TieredMenu` no longer set `aria-level` on their items. The attribute is not valid on the `menuitem` role and made screen readers announce a nesting depth that is not part of the menu pattern. ([#645](https://github.com/openvi-foundation/openvue/pull/645))
+- `Toast` no longer nudges the messages under it in the last frame of a dismissal. A leaving message collapsed its height and margin but held on to its border width, so the rest of the stack shifted by a couple of pixels as it vanished, and the animation did not keep its final frame. The border now collapses with everything else and the animation holds where it ends.
+- `Toast` and `Image` apply their backdrop blur in Safari and other WebKit browsers, which still need the `-webkit-backdrop-filter` prefix. The surface behind a toast and the toolbar over an image preview were rendering unblurred there.
+- Showcase: dates in the landing page tables render identically in every timezone, instead of shifting by a day depending on where you are.
+- Showcase: the homepage stays indexable when the client render fails, so a transient error no longer costs the page its search listing.
+- Showcase: the error page and several landing sections no longer overflow horizontally on narrow viewports.
+
+## 1.0.0-rc.0 - 2026-08-18
+
+The first release candidate. The version moves from `0.7.0-beta.0` to `1.0.0-rc.0`: the public API is what we intend to ship as 1.0, and from here we only take bug fixes and documentation until the stable release. Packages are published under the `rc` dist-tag. Report anything that looks like a regression, that is exactly what a release candidate is for.
+
+### Added
+
+- `VirtualScroller` gains a `getItemSize` prop, a callback that returns an item's height by index, so a list whose rows are not all the same height can still be virtualized. ([#621](https://github.com/openvi-foundation/openvue/pull/621))
+- Showcase: a Playground tab on the form components, the button components, and the panel components (Accordion, Card, DeferredContent, Divider, Fieldset, Panel, ScrollPanel, Splitter, Stepper, Tabs and Toolbar). Each one generates the code for whatever you set up in it, as a complete single file component in both the Composition and Options API. ([#622](https://github.com/openvi-foundation/openvue/pull/622), [#623](https://github.com/openvi-foundation/openvue/pull/623), [#624](https://github.com/openvi-foundation/openvue/pull/624))
+- Showcase: a guide for migrating charts from PrimeVue.
+
+### Changed
+
+- The `@openuxkit/*` engine packages are upgraded to 1.0.0.
+- Showcase: the icons page is built on `@openvue/openicons` and restructured around the two OpenIcons formats. ([#37](https://github.com/openvi-foundation/openvue/pull/37))
+- Showcase: the introduction and contribution pages are rewritten, and Components now sits above Configuration in the sidebar.
+
+### Fixed
+
+- `DataTable` supports subheader row grouping together with virtual scrolling. Group headers and footers are measured rather than assumed to be the same height as a row, so grouped rows no longer drift out of position while scrolling. Contributed by [@Tamas-hi](https://github.com/Tamas-hi). ([#621](https://github.com/openvi-foundation/openvue/pull/621))
+- `BlockUI` always removes its mask when unblocked. Blocking and unblocking in quick succession, or unmounting the component while the leave animation was still running, could leave a mask covering the page and swallowing every click. The mask is now also cleaned up when the component unmounts. ([#626](https://github.com/openvi-foundation/openvue/pull/626))
+- Showcase: the `Toast` documentation covers removing a single message by its id, and the Multiple demo no longer calls a method that does not exist. ([#628](https://github.com/openvi-foundation/openvue/pull/628), [#629](https://github.com/openvi-foundation/openvue/pull/629))
+- `DataTable`'s advanced filter menu stays open while you use an overlay inside it, such as the match mode `Select`, a `MultiSelect` or a `DatePicker`. The menu recognises a nested overlay through its attribute selector, so being appended to the body no longer makes it look like an outside click. `Select` additionally announces the interaction on mousedown, since it commits an option and hides its overlay before the browser dispatches the click, which also fixes a `Select` nested in a `Popover`. ([#630](https://github.com/openvi-foundation/openvue/issues/630))
+
+## 0.7.0-beta.0 - 2026-08-03
+
+The version jumps from `0.0.1-beta.1` to `0.7.0-beta.0` to reflect the project's actual maturity. Nothing was released between the two. Packages remain pre-1.0 and continue to be published under the `beta` dist-tag.
+
+### Added
+
+- `Chart` now follows the active theme, reading colors, fonts, grid and border values from the design tokens instead of relying on Chart.js defaults, and restyling itself when the preset changes or dark mode is toggled. Controlled by a new `themed` prop, enabled by default.
+- `Chart` ships TypeScript definitions.
+- `Password` gains `showPasswordLabel` and `hidePasswordLabel` props for labelling the mask toggle.
+- `chart.js` and `quill` are declared as optional `peerDependencies`, so package managers surface the expected version instead of leaving it undocumented.
+- `Chart` logs an actionable error when `chart.js` is not installed, rather than failing silently.
+- Showcase: a chart playground covering every chart type, a reworked landing hero, topbar and footer, and an About page.
+- `SECURITY.md` describing how to report a vulnerability.
+- `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
+- This changelog, backfilled with the release history from alpha.1 onward.
+
+### Changed
+
+- Documentation links in TypeScript definitions now point to openvue.dev instead of primevue.org, so editor tooltips reference the maintained docs.
+- `Chart` requires Chart.js 4.5 or newer.
+- Charts pick up a default look derived from the theme. Existing charts that relied on Chart.js default styling will look different; pass `:themed="false"` to opt out.
+
+### Removed
+
+- **Breaking:** `Chart`'s `generateLegend()` method. It called a Chart.js 2 API that has not existed since Chart.js 3, so it threw whenever it was called. Use the `plugins` option to customise legends.
+
+### Fixed
+
+- `Chart`'s `getCanvas()` returned `undefined` because it read a property that was never assigned.
+- `Chart` no longer builds an instance against a detached canvas when the component unmounts before the async `chart.js` import resolves.
+- `Chart` now reflects replaced `data` and `options` objects, which previously did not reach the underlying instance.
+- The `Password` mask toggle fired twice when a custom slot was used.
+- The show/hide and clear buttons on `Password` are now keyboard accessible.
+
+## 0.0.1-beta.1 - 2026-07-27
+
+### Changed
+
+- Replaced the `@primeuix/*` engine dependencies with the forked `@openuxkit/*` packages (`styled`, `utils`, `styles`, `themes`, `forms`, `mcp`), completing the move off upstream packages. Theme presets and the public theming API continue to come from `@openvue/themes`; `@openuxkit/themes` supplies `/tokens` and `/types`.
+- `@openvue/migrate` now rewrites `@primeuix/*` imports to `@openuxkit/*` as part of a migration.
+- Showcase theming documentation updated for the OpenUXKit packages.
+
+## 0.0.1-beta.0 - 2026-07-23
+
+### Changed
+
+- Promoted the packages from alpha to beta. The component API is considered stable from this point; remaining work is polish toward a stable release.
+- Refined the `@openvue/migrate` CLI output and styling.
+
+### Fixed
+
+- Typo on the showcase About page.
+
+## 0.0.1-alpha.5 - 2026-07-23
+
+### Added
+
+- End-to-end consumer test suite covering real Vite, Nuxt, Laravel (Vite and Inertia), and Volt projects, exercised in CI on every pull request. Packages are packed as tarballs and installed the way a consumer would install them.
+- `scripts/verify-package-contracts.mjs` and `scripts/verify-dist.mjs`, which fail the build if a published artifact still references `primevue`.
+
+### Changed
+
+- `@openvue/migrate` is now interactive: it prints a plan covering the detected package manager, the PrimeVue version, and every file it will touch, then asks for confirmation before writing.
+
+## 0.0.1-alpha.4 - 2026-07-20
+
+### Added
+
+- UMD build and CDN support, so OpenVue can be used from a `<script>` tag without a bundler.
+- CDN setup documentation on the showcase.
+
+## 0.0.1-alpha.3 - 2026-07-20
+
+### Fixed
+
+- `@openvue/auto-import-resolver` resolved components to `primevue/...` paths instead of `openvue/...`.
+- The `openvue` root barrel (`index.mjs` / `index.d.ts`) still self-referenced `primevue/...`, which broke Vite resolution and produced `Module '"openvue"' has no exported member 'useToast'` under `tsc`.
+- The `@openvue/icons` barrel generator still emitted `@primevue/icons/...` templates, regenerating a broken barrel on every build.
+
+## 0.0.1-alpha.2 - 2026-07-17
+
+### Added
+
+- Announcement page on openvue.dev covering the fork, the roadmap, and install instructions.
+
+## 0.0.1-alpha.1 - 2026-07-17
+
+First OpenVue release, forked from PrimeVue 4.5.5.
+
+### Added
+
+- `@openvue/migrate`, a CLI that moves a PrimeVue v4 project to OpenVue in one command. It renames dependencies, rewrites imports across JavaScript, TypeScript, Vue, Astro, and MDX, adds a compatibility override so third-party packages that still depend on PrimeVue keep resolving, and reports anything needing manual attention. Supports npm, pnpm, Yarn, Bun, and monorepos, with `--dry`, sources-only, no-install, no-alias, and force modes. Refuses to run against a dirty Git tree unless forced.
+- Contributing guide and OpenVue issue templates.
+
+### Changed
+
+- Renamed the published packages: `primevue` is now `openvue`, and `@primevue/*` is now `@openvue/*`.
+- Rebranded the showcase as OpenVue, with a fork notice explaining the project's relationship to PrimeVue, and removed the PrimeTek commercial pages and assets.
+- License copyright updated for the fork. The project remains MIT.
 
 ---
 
@@ -1981,7 +2249,7 @@ Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configu
 ```vue
 {
     "mcpServers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -2031,7 +2299,7 @@ Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/Us
 ```vue
 {
     "servers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -2046,7 +2314,7 @@ Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.
 ```vue
 {
     "mcpServers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -2060,14 +2328,15 @@ Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/App
 
 ```vue
 {
-    "context_servers": {
-        "primevue": {
-            "command": {
-                "path": "npx",
-                "args": ["-y", "@openvue/mcp"]
-            }
-        }
+  "context_servers": {
+    "openvue": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@openvue/mcp"
+      ]
     }
+  }
 }
 ```
 
@@ -13659,7 +13928,7 @@ DatePicker is a form component for date inputs.
 
 ## Accessibility
 
-Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
+Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API, followed by the month, year or decade the button navigates to such as Next Month, November 2026 . Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. The timepicker has a similar section that announces the new time whenever the hour, minute, second or am/pm value changes. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
 
 **Basic Usage:**
 
@@ -14627,6 +14896,7 @@ const date = ref();
 | hiddenSelectedDay | DatePickerPassThroughOptionType | Used to pass attributes to the aria selected day's DOM element. |
 | hiddenMonth | DatePickerPassThroughOptionType | Used to pass attributes to the aria month's DOM element. |
 | hiddenYear | DatePickerPassThroughOptionType | Used to pass attributes to the aria year's DOM element. |
+| hiddenTime | DatePickerPassThroughOptionType | Used to pass attributes to the aria time's DOM element. |
 | hooks | any | Used to manage all lifecycle hooks. |
 | transition | DatePickerPassThroughTransitionType | Used to control Vue Transition API. |
 
@@ -24008,7 +24278,7 @@ Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configu
 ```vue
 {
     "mcpServers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -24064,7 +24334,7 @@ Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/Us
 ```vue
 {
     "servers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -24081,7 +24351,7 @@ Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.
 ```vue
 {
     "mcpServers": {
-        "primevue": {
+        "openvue": {
             "command": "npx",
             "args": ["-y", "@openvue/mcp"]
         }
@@ -24097,14 +24367,15 @@ Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/App
 
 ```vue
 {
-    "context_servers": {
-        "primevue": {
-            "command": {
-                "path": "npx",
-                "args": ["-y", "@openvue/mcp"]
-            }
-        }
+  "context_servers": {
+    "openvue": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@openvue/mcp"
+      ]
     }
+  }
 }
 ```
 
@@ -36941,7 +37212,7 @@ We are early, and we are in this for the long run. If you want to help, star the
 
 ## Introduction
 
-Hey Vue community, We are long-time PrimeVue users who believe a great UI component library should stay free, open, and community run. PrimeVue was archived after its v4.5.5 release in April 2026 and development moved on elsewhere. Rather than watch one of the most widely adopted Vue component libraries go unmaintained, we picked it up. OpenVue is our continuation of PrimeVue v4, the last fully open source line, with more than 80 accessible and themeable components. It is MIT licensed, and it stays that way. Let's keep Vue open together. &mdash; Openvi Foundation
+Hey Vue community, We are long-time PrimeVue users who believe a great UI component library should stay free, open, and community run. PrimeVue 4.5.5, released in April 2026, was the last open source version, and new development moved to a commercial license. Rather than watch one of the most widely adopted Vue component libraries stand still, we picked it up. OpenVue is our continuation of PrimeVue v4, the last fully open source line, with more than 80 accessible and themeable components. It is MIT licensed, and it stays that way. Let's keep Vue open together. &mdash; Openvi Foundation
 
 ## Why We Continued
 
@@ -40379,22 +40650,16 @@ const onNodeExpand = (node) => {
         node.loading = true;
 
         setTimeout(() => {
-            let _node = { ...node };
-
-            _node.children = [];
+            node.children = [];
 
             for (let i = 0; i < 3; i++) {
-                _node.children.push({
+                node.children.push({
                     key: node.key + '-' + i,
                     label: 'Lazy ' + node.label + '-' + i
                 });
             }
 
-            let _nodes = { ...nodes.value };
-
-            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
-
-            nodes.value = _nodes;
+            node.loading = false;
         }, 500);
     }
 };
@@ -41436,18 +41701,16 @@ const onNodeExpand = (node) => {
         node.loading = true;
 
         setTimeout(() => {
-            let _node = { ...node };
-
-            _node.children = [];
+            node.children = [];
 
             for (let i = 0; i < 3; i++) {
-                _node.children.push({
+                node.children.push({
                     key: node.key + '-' + i,
                     label: 'Lazy ' + node.label + '-' + i
                 });
             }
 
-            nodes.value[parseInt(node.key, 10)] = { ..._node, loading: false };
+            node.loading = false;
         }, 500);
     }
 };
@@ -42254,130 +42517,6 @@ const columns = ref([
 ...
 ```
 
-## FilterDoc
-
-Filtering is enabled by adding the filter property to a Column. The filterMode specifies the filtering strategy, in lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants. A general filled called globalFilter is also provided to search all columns that support filtering.
-
-**Basic Usage:**
-
-```vue
-<SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
-<TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
-    <template #header>
-        <div class="flex justify-end">
-            <IconField>
-                <InputIcon class="pi pi-search" />
-                <InputText v-model="filters['global']" placeholder="Global Search" />
-            </IconField>
-        </div>
-    </template>
-    <template #empty> No customers found.</template>
-    <Column field="name" header="Name" expander style="min-width: 12rem">
-        <template #filter>
-            <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
-        </template>
-    </Column>
-    <Column field="size" header="Size" style="min-width: 12rem">
-        <template #filter>
-            <InputText v-model="filters['size']" type="text" placeholder="Filter by size" />
-        </template>
-    </Column>
-    <Column field="type" header="Type" style="min-width: 12rem">
-        <template #filter>
-            <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
-        </template>
-    </Column>
-</TreeTable>
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex justify-center mb-6">
-            <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
-        </div>
-        <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
-            <template #header>
-                <div class="flex justify-end">
-                    <IconField>
-                        <InputIcon class="pi pi-search" />
-                        <InputText v-model="filters['global']" placeholder="Global Search" />
-                    </IconField>
-                </div>
-            </template>
-            <template #empty> No customers found.</template>
-            <Column field="name" header="Name" expander style="min-width: 12rem">
-                <template #filter>
-                    <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
-                </template>
-            </Column>
-            <Column field="size" header="Size" style="min-width: 12rem">
-                <template #filter>
-                    <InputText v-model="filters['size']" type="text" placeholder="Filter by size" />
-                </template>
-            </Column>
-            <Column field="type" header="Type" style="min-width: 12rem">
-                <template #filter>
-                    <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
-                </template>
-            </Column>
-        </TreeTable>
-    </div>
-</template>
-
-<script setup>
-import { ref, onMounted } from 'vue';
-import { NodeService } from '@/service/NodeService';
-
-onMounted(() => {
-    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
-});
-
-const nodes = ref();
-const filters = ref({});
-const filterMode = ref({ label: 'Lenient', value: 'lenient' });
-const filterOptions = ref([
-    { label: 'Lenient', value: 'lenient' },
-    { label: 'Strict', value: 'strict' }
-]);
-<\/script>
-```
-</details>
-
-**Sample Data:**
-
-```json
-{
-    key: '0',
-    label: 'Documents',
-    data: 'Documents Folder',
-    icon: 'pi pi-fw pi-inbox',
-    children: [
-        {
-            key: '0-0',
-            label: 'Work',
-            data: 'Work Folder',
-            icon: 'pi pi-fw pi-cog',
-            children: [
-                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
-                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
-            ]
-        },
-        {
-            key: '0-1',
-            label: 'Home',
-            data: 'Home Folder',
-            icon: 'pi pi-fw pi-home',
-            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
-        }
-    ]
-},
-...
-```
-
 ## GridLinesDoc
 
 Enabling showGridlines displays grid lines.
@@ -42793,9 +42932,13 @@ const nodes = ref();
 | multiSortMeta | null \| TreeTableSortMeta[] | - | An array of SortMeta objects to sort the data by default in multiple sort mode. |
 | sortMode | HintedString<"single" \| "multiple"> | single | Defines whether sorting works on single column or on multiple columns. |
 | removableSort | boolean | false | When enabled, columns can have an un-sorted state. |
-| filters | TreeTableFilterMeta | - | Filters object with key-value pairs to define the filters. |
+| filters | TreeTableFilterMeta | - | Filters object with key-value pairs to define the filters. Two shapes are accepted per field: the flat form  `{ name: 'value' }` , where the match mode comes from the  `filterMatchMode`  prop of the Column, and the DataTable form  `{ name: { value, matchMode } }`  or  `{ name: { operator, constraints: [{ value, matchMode }] } }` , used together with  `filterDisplay` . With multiple constraints,  `and`  applies each constraint in turn to the subtree left by the previous one, and  `or`  keeps every branch that satisfies any constraint. |
 | filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
+| filterDisplay | HintedString<"menu" \| "row"> | - | Layout of the filter elements. When undefined, the filter row is rendered from the Column filter slot as-is. |
+| globalFilterFields | string[] | - | An array of fields to use in global filtering, defaults to the filter fields of all columns. |
 | filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterInputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component. |
+| filterButtonProps | Partial<TreeTableFilterButtonPropsOptions> | - | Used to pass all filter button property object |
 | resizableColumns | boolean | false | When enabled, columns can be resized using drag and drop. |
 | columnResizeMode | HintedString<"fit" \| "expand"> | fit | Defines whether the overall table width should change on column resize. |
 | indentation | number | 1 | Indentation factor as rem value for children nodes. |
@@ -42934,6 +43077,32 @@ const nodes = ref();
 | treetable.node.toggle.button.focus.ring.color | --p-treetable-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
 | treetable.node.toggle.button.focus.ring.offset | --p-treetable-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
 | treetable.node.toggle.button.focus.ring.shadow | --p-treetable-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| treetable.filter.inline.gap | --p-treetable-filter-inline-gap | Inline gap of filter |
+| treetable.filter.overlay.select.background | --p-treetable-filter-overlay-select-background | Overlay select background of filter |
+| treetable.filter.overlay.select.border.color | --p-treetable-filter-overlay-select-border-color | Overlay select border color of filter |
+| treetable.filter.overlay.select.border.radius | --p-treetable-filter-overlay-select-border-radius | Overlay select border radius of filter |
+| treetable.filter.overlay.select.color | --p-treetable-filter-overlay-select-color | Overlay select color of filter |
+| treetable.filter.overlay.select.shadow | --p-treetable-filter-overlay-select-shadow | Overlay select shadow of filter |
+| treetable.filter.overlay.popover.background | --p-treetable-filter-overlay-popover-background | Overlay popover background of filter |
+| treetable.filter.overlay.popover.border.color | --p-treetable-filter-overlay-popover-border-color | Overlay popover border color of filter |
+| treetable.filter.overlay.popover.border.radius | --p-treetable-filter-overlay-popover-border-radius | Overlay popover border radius of filter |
+| treetable.filter.overlay.popover.color | --p-treetable-filter-overlay-popover-color | Overlay popover color of filter |
+| treetable.filter.overlay.popover.shadow | --p-treetable-filter-overlay-popover-shadow | Overlay popover shadow of filter |
+| treetable.filter.overlay.popover.padding | --p-treetable-filter-overlay-popover-padding | Overlay popover padding of filter |
+| treetable.filter.overlay.popover.gap | --p-treetable-filter-overlay-popover-gap | Overlay popover gap of filter |
+| treetable.filter.rule.border.color | --p-treetable-filter-rule-border-color | Rule border color of filter |
+| treetable.filter.constraint.list.padding | --p-treetable-filter-constraint-list-padding | Constraint list padding of filter |
+| treetable.filter.constraint.list.gap | --p-treetable-filter-constraint-list-gap | Constraint list gap of filter |
+| treetable.filter.constraint.focus.background | --p-treetable-filter-constraint-focus-background | Constraint focus background of filter |
+| treetable.filter.constraint.selected.background | --p-treetable-filter-constraint-selected-background | Constraint selected background of filter |
+| treetable.filter.constraint.selected.focus.background | --p-treetable-filter-constraint-selected-focus-background | Constraint selected focus background of filter |
+| treetable.filter.constraint.color | --p-treetable-filter-constraint-color | Constraint color of filter |
+| treetable.filter.constraint.focus.color | --p-treetable-filter-constraint-focus-color | Constraint focus color of filter |
+| treetable.filter.constraint.selected.color | --p-treetable-filter-constraint-selected-color | Constraint selected color of filter |
+| treetable.filter.constraint.selected.focus.color | --p-treetable-filter-constraint-selected-focus-color | Constraint selected focus color of filter |
+| treetable.filter.constraint.separator.border.color | --p-treetable-filter-constraint-separator-border-color | Constraint separator border color of filter |
+| treetable.filter.constraint.padding | --p-treetable-filter-constraint-padding | Constraint padding of filter |
+| treetable.filter.constraint.border.radius | --p-treetable-filter-constraint-border-radius | Constraint border radius of filter |
 | treetable.paginator.top.border.color | --p-treetable-paginator-top-border-color | Border color of paginator top |
 | treetable.paginator.top.border.width | --p-treetable-paginator-top-border-width | Border width of paginator top |
 | treetable.paginator.bottom.border.color | --p-treetable-paginator-bottom-border-color | Border color of paginator bottom |

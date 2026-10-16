@@ -8,20 +8,20 @@ The auto import feature registers components automatically with tree shaking sup
 
 ## Download
 
-OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
+OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.
 
 ```vue
 # Using npm
-npm install openvue@rc @openvue/themes
-npm install --save-dev @openvue/nuxt-module@rc
+npm install openvue @openvue/themes
+npm install --save-dev @openvue/nuxt-module
 
 # Using yarn
-yarn add openvue@rc @openvue/themes
-yarn add --dev @openvue/nuxt-module@rc
+yarn add openvue @openvue/themes
+yarn add --dev @openvue/nuxt-module
 
 # Using pnpm
-pnpm add openvue@rc @openvue/themes
-pnpm add -D @openvue/nuxt-module@rc
+pnpm add openvue @openvue/themes
+pnpm add -D @openvue/nuxt-module
 ```
 
 ## Examples
@@ -34,7 +34,7 @@ In nuxt.config file, add the @openvue/nuxt-module to the modules section and def
 
 ## Next Steps
 
-Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes
+Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes
 
 ## Styled Mode
 

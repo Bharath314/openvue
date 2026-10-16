@@ -52,22 +52,28 @@
                     </button>
                     <AppConfigurator />
                 </li>
+                <li v-if="showDesigner">
+                    <button type="button" class="topbar-item" @click="toggleDesigner" aria-label="Theme Designer" title="Theme Designer">
+                        <i class="pi pi-sliders-h"></i>
+                    </button>
+                </li>
                 <li v-if="showMenuButton" class="menu-button">
-                    <button type="button" class="topbar-item menu-button" @click="onMenuButtonClick" aria-haspopup aria-label="Menu">
+                    <button type="button" class="topbar-item menu-button" @click="toggleMobileMenu" aria-haspopup="dialog" :aria-expanded="mobileMenuActive" aria-label="Menu">
                         <i class="pi pi-bars"></i>
                     </button>
                 </li>
             </ul>
         </div>
         <AppSearch />
+        <AppMobileMenu :visible="mobileMenuActive" :sections="navLinks" @close="closeMobileMenu" />
     </div>
 </template>
 
 <script>
 import EventBus from '@/app/AppEventBus';
+import AppMobileMenu from './AppMobileMenu.vue';
 
 export default {
-    emits: ['menubutton-click'],
     setup() {
         const { starsLabel } = useGitHubStars();
 
@@ -78,6 +84,12 @@ export default {
         showMenuButton: {
             type: Boolean,
             default: true
+        },
+        // The designer drawer is mounted by the documentation layout, so the button is hidden on
+        // pages that use the bare layout and would have nothing to open.
+        showDesigner: {
+            type: Boolean,
+            default: true
         }
     },
     scrollListener: null,
@@ -86,30 +98,46 @@ export default {
         return {
             /* Templates live on their own site, so that entry leaves the showcase. */
             navLinks: [
-                { label: 'Docs', to: '/introduction' },
-                { label: 'Components', to: '/components' },
-                { label: 'Migration', to: '/migrate' },
-                { label: 'Templates', href: 'https://deni.openvue.dev/' }
-            ]
+                { label: 'Docs', to: '/introduction', panel: 'docs', icon: 'pi pi-book' },
+                { label: 'Components', to: '/components', panel: 'components', icon: 'pi pi-th-large' },
+                { label: 'Migration', to: '/migrate', icon: 'pi pi-arrow-right-arrow-left' },
+                { label: 'Templates', href: 'https://deni.openvue.dev/', icon: 'pi pi-desktop' }
+            ],
+            mobileMenuActive: false
         };
     },
+    desktopQuery: null,
     mounted() {
         this.bindScrollListener();
+
+        this.desktopQuery = window.matchMedia('(min-width: 1024px)');
+        this.desktopQuery.addEventListener('change', this.onDesktopChange);
     },
     beforeUnmount() {
         if (this.scrollListener) {
             this.unbindScrollListener();
         }
+
+        this.desktopQuery?.removeEventListener('change', this.onDesktopChange);
     },
     methods: {
-        onMenuButtonClick(event) {
-            this.$emit('menubutton-click', event);
+        toggleMobileMenu() {
+            this.mobileMenuActive = !this.mobileMenuActive;
+        },
+        closeMobileMenu() {
+            this.mobileMenuActive = false;
+        },
+        onDesktopChange(event) {
+            if (event.matches) this.closeMobileMenu();
         },
         openSearch() {
             EventBus.emit('open-search');
         },
         toggleDarkMode() {
             EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
+        },
+        toggleDesigner() {
+            this.$appState.designer.active = !this.$appState.designer.active;
         },
         bindScrollListener() {
             if (!this.scrollListener) {
@@ -152,6 +180,9 @@ export default {
         containerRef(el) {
             this.container = el;
         }
+    },
+    components: {
+        AppMobileMenu
     }
 };
 </script>

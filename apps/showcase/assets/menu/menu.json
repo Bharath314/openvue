@@ -16,6 +16,10 @@
                     "name": "PrimeVue Migration",
                     "to": "/migrate",
                     "badge": "NEW"
+                },
+                {
+                    "name": "PrimeVue Alternative",
+                    "to": "/primevue-alternative"
                 }
             ]
         },
@@ -489,6 +493,11 @@
                     "to": "/theming/unstyled"
                 },
                 {
+                    "name": "Theme Designer",
+                    "to": "/designer",
+                    "badge": "NEW"
+                },
+                {
                     "name": "Tailwind CSS",
                     "icon": "pi pi-star",
                     "to": "/tailwind"
@@ -601,7 +610,7 @@
                 },
                 {
                     "name": "Changelog",
-                    "href": "https://github.com/openvi-foundation/openvue/blob/master/CHANGELOG.md"
+                    "to": "/changelog"
                 },
                 {
                     "name": "Contribution",

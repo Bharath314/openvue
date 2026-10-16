@@ -26,16 +26,14 @@ OpenVue is maintained by volunteers. We take security reports seriously, but we 
 
 ## Supported versions
 
-OpenVue is currently a release candidate and all packages share a single version. Only the most recent release receives fixes.
+All packages in OpenVue share a single version. Only the most recent release receives fixes.
 
-| Version             | Supported |
-| ------------------- | --------- |
-| Latest `rc` release | Yes       |
-| Earlier prereleases | No        |
+| Version            | Supported |
+| ------------------ | --------- |
+| Latest 1.x release | Yes       |
+| Earlier releases   | No        |
 
-Once OpenVue reaches a stable release, this table will be updated to describe the supported release line.
-
-Vulnerabilities inherited from PrimeVue are in scope for OpenVue if they still affect a current OpenVue release. The archived upstream project is not maintained, so please report those here rather than to PrimeVue.
+Vulnerabilities inherited from PrimeVue are in scope for OpenVue if they still affect a current OpenVue release. Please report those here as well, because a fix released upstream does not reach OpenVue on its own.
 
 ## Scope
 

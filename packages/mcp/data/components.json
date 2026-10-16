@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "generatedAt": "2026-08-29",
+    "generatedAt": "2026-10-16",
     "components": [
         {
             "name": "accordion",
@@ -10070,7 +10070,7 @@
                 {
                     "id": "accessibility",
                     "label": "Accessibility",
-                    "description": "Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as \"none\", aria-haspopup as \"dialog\" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as \"polite\". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.",
+                    "description": "Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as \"none\", aria-haspopup as \"dialog\" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API, followed by the month, year or decade the button navigates to such as Next Month, November 2026 . Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as \"polite\". This element is updated when the selected date changes to instruct the user about the current date selected. The timepicker has a similar section that announces the new time whenever the hour, minute, second or am/pm value changes. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.",
                     "examples": {
                         "basic": "<label for=\"date1\">Date</label>\n<DatePicker inputId=\"date1\" />\n\n<span id=\"date2\">Date</span>\n<DatePicker aria-labelledby=\"date2\" />\n\n<DatePicker aria-label=\"Date\" />"
                     }
@@ -11003,6 +11003,11 @@
                         "name": "hiddenYear",
                         "type": "DatePickerPassThroughOptionType",
                         "description": "Used to pass attributes to the aria year's DOM element."
+                    },
+                    {
+                        "name": "hiddenTime",
+                        "type": "DatePickerPassThroughOptionType",
+                        "description": "Used to pass attributes to the aria time's DOM element."
                     },
                     {
                         "name": "hooks",
@@ -20415,7 +20420,7 @@
                     "label": "Cursor",
                     "description": "Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configuration.",
                     "examples": {
-                        "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -20451,7 +20456,7 @@
                     "label": "VS Code",
                     "description": "Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/User/mcp.json for global configuration.",
                     "examples": {
-                        "basic": "{\n    \"servers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"servers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -20459,7 +20464,7 @@
                     "label": "Windsurf",
                     "description": "Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.",
                     "examples": {
-                        "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -20467,7 +20472,7 @@
                     "label": "Zed",
                     "description": "Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/Application Support/Zed/settings.json (macOS).",
                     "examples": {
-                        "basic": "{\n    \"context_servers\": {\n        \"primevue\": {\n            \"command\": {\n                \"path\": \"npx\",\n                \"args\": [\"-y\", \"@openvue/mcp\"]\n            }\n        }\n    }\n}"
+                        "basic": "{\n  \"context_servers\": {\n    \"openvue\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"-y\",\n        \"@openvue/mcp\"\n      ]\n    }\n  }\n}"
                     }
                 }
             ],
@@ -32052,7 +32057,7 @@
                 {
                     "id": "introduction",
                     "label": "Introduction",
-                    "description": "Hey Vue community, We are long-time PrimeVue users who believe a great UI component library should stay free, open, and community run. PrimeVue was archived after its v4.5.5 release in April 2026 and development moved on elsewhere. Rather than watch one of the most widely adopted Vue component libraries go unmaintained, we picked it up. OpenVue is our continuation of PrimeVue v4, the last fully open source line, with more than 80 accessible and themeable components. It is MIT licensed, and it stays that way. Let's keep Vue open together. &mdash; Openvi Foundation",
+                    "description": "Hey Vue community, We are long-time PrimeVue users who believe a great UI component library should stay free, open, and community run. PrimeVue 4.5.5, released in April 2026, was the last open source version, and new development moved to a commercial license. Rather than watch one of the most widely adopted Vue component libraries stand still, we picked it up. OpenVue is our continuation of PrimeVue v4, the last fully open source line, with more than 80 accessible and themeable components. It is MIT licensed, and it stays that way. Let's keep Vue open together. &mdash; Openvi Foundation",
                     "examples": null
                 },
                 {
@@ -36124,8 +36129,8 @@
                     "description": "Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method.",
                     "examples": {
                         "basic": "<Tree :value=\"nodes\" @node-expand=\"onNodeExpand\" loadingMode=\"icon\" class=\"w-full md:w-[30rem]\"></Tree>",
-                        "options": "<template>\n    <div class=\"card\">\n        <Tree :value=\"nodes\" @node-expand=\"onNodeExpand\" loadingMode=\"icon\" class=\"w-full md:w-[30rem]\"></Tree>\n    </div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            nodes: null\n        };\n    },\n    mounted() {\n        this.nodes = this.initiateNodes();\n\n        setTimeout(() => {\n            this.nodes.map((node) => (node.loading = false));\n        }, 2000);\n    },\n    methods: {\n        onNodeExpand(node) {\n            if (!node.children) {\n                node.loading = true;\n\n                setTimeout(() => {\n                    let _node = { ...node };\n\n                    _node.children = [];\n\n                    for (let i = 0; i < 3; i++) {\n                        _node.children.push({\n                            key: node.key + '-' + i,\n                            label: 'Lazy ' + node.label + '-' + i\n                        });\n                    }\n\n                    let _nodes = { ...this.nodes };\n\n                    _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };\n\n                    this.nodes = _nodes;\n                }, 500);\n            }\n        },\n        initiateNodes() {\n            return [\n                {\n                    key: '0',\n                    label: 'Node 0',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '1',\n                    label: 'Node 1',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '2',\n                    label: 'Node 2',\n                    leaf: false,\n                    loading: true\n                }\n            ];\n        }\n    }\n}\n<\\/script>",
-                        "composition": "<template>\n    <div class=\"card\">\n        <Tree :value=\"nodes\" @node-expand=\"onNodeExpand\" loadingMode=\"icon\" class=\"w-full md:w-[30rem]\"></Tree>\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst nodes = ref(null);\n\nonMounted(() => {\n    nodes.value = initiateNodes();\n\n    setTimeout(() => {\n        nodes.value.map((node) => (node.loading = false));\n    }, 2000);\n});\n\n\nconst onNodeExpand = (node) => {\n    if (!node.children) {\n        node.loading = true;\n\n        setTimeout(() => {\n            let _node = { ...node };\n\n            _node.children = [];\n\n            for (let i = 0; i < 3; i++) {\n                _node.children.push({\n                    key: node.key + '-' + i,\n                    label: 'Lazy ' + node.label + '-' + i\n                });\n            }\n\n            let _nodes = { ...nodes.value };\n\n            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };\n\n            nodes.value = _nodes;\n        }, 500);\n    }\n};\n\nconst initiateNodes = () => {\n    return [\n        {\n            key: '0',\n            label: 'Node 0',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '1',\n            label: 'Node 1',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '2',\n            label: 'Node 2',\n            leaf: false,\n            loading: true\n        }\n    ];\n};\n<\\/script>"
+                        "options": "<template>\n    <div class=\"card\">\n        <Tree :value=\"nodes\" @node-expand=\"onNodeExpand\" loadingMode=\"icon\" class=\"w-full md:w-[30rem]\"></Tree>\n    </div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            nodes: null\n        };\n    },\n    mounted() {\n        this.nodes = this.initiateNodes();\n\n        setTimeout(() => {\n            this.nodes.map((node) => (node.loading = false));\n        }, 2000);\n    },\n    methods: {\n        onNodeExpand(node) {\n            if (!node.children) {\n                node.loading = true;\n\n                setTimeout(() => {\n                    node.children = [];\n\n                    for (let i = 0; i < 3; i++) {\n                        node.children.push({\n                            key: node.key + '-' + i,\n                            label: 'Lazy ' + node.label + '-' + i\n                        });\n                    }\n\n                    node.loading = false;\n                }, 500);\n            }\n        },\n        initiateNodes() {\n            return [\n                {\n                    key: '0',\n                    label: 'Node 0',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '1',\n                    label: 'Node 1',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '2',\n                    label: 'Node 2',\n                    leaf: false,\n                    loading: true\n                }\n            ];\n        }\n    }\n}\n<\\/script>",
+                        "composition": "<template>\n    <div class=\"card\">\n        <Tree :value=\"nodes\" @node-expand=\"onNodeExpand\" loadingMode=\"icon\" class=\"w-full md:w-[30rem]\"></Tree>\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst nodes = ref(null);\n\nonMounted(() => {\n    nodes.value = initiateNodes();\n\n    setTimeout(() => {\n        nodes.value.map((node) => (node.loading = false));\n    }, 2000);\n});\n\n\nconst onNodeExpand = (node) => {\n    if (!node.children) {\n        node.loading = true;\n\n        setTimeout(() => {\n            node.children = [];\n\n            for (let i = 0; i < 3; i++) {\n                node.children.push({\n                    key: node.key + '-' + i,\n                    label: 'Lazy ' + node.label + '-' + i\n                });\n            }\n\n            node.loading = false;\n        }, 500);\n    }\n};\n\nconst initiateNodes = () => {\n    return [\n        {\n            key: '0',\n            label: 'Node 0',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '1',\n            label: 'Node 1',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '2',\n            label: 'Node 2',\n            leaf: false,\n            loading: true\n        }\n    ];\n};\n<\\/script>"
                     }
                 },
                 {
@@ -36798,8 +36803,8 @@
                     "description": "Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method.",
                     "examples": {
                         "basic": "<TreeSelect v-model=\"selectedValue\" loadingMode=\"icon\" :options=\"nodes\" @node-expand=\"onNodeExpand\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />",
-                        "options": "<template>\n    <div class=\"card\">\n        <TreeSelect v-model=\"selectedValue\" loadingMode=\"icon\" :options=\"nodes\" @node-expand=\"onNodeExpand\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />\n    </div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            nodes: null,\n            selectedValue: null\n        }\n    },\n    mounted() {\n        this.nodes = this.initiateNodes();\n\n        setTimeout(() => {\n            this.nodes.map((node) => (node.loading = false));\n        }, 2000);\n    },\n    methods: {\n        onNodeExpand(node) {\n            if (!node.children) {\n                node.loading = true;\n\n                setTimeout(() => {\n                    let _node = { ...node };\n\n                    _node.children = [];\n\n                    for (let i = 0; i < 3; i++) {\n                        _node.children.push({\n                            key: node.key + '-' + i,\n                            label: 'Lazy ' + node.label + '-' + i\n                        });\n                    }\n\n                    this.nodes[parseInt(node.key, 10)] = { ..._node, loading: false };\n                }, 500);\n            }\n        },\n        initiateNodes() {\n            return [\n                {\n                    key: '0',\n                    label: 'Node 0',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '1',\n                    label: 'Node 1',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '2',\n                    label: 'Node 2',\n                    leaf: false,\n                    loading: true\n                }\n            ];\n        }\n    }\n}\n<\\/script>",
-                        "composition": "<template>\n    <div class=\"card\">\n        <TreeSelect v-model=\"selectedValue\" loadingMode=\"icon\" :options=\"nodes\" @node-expand=\"onNodeExpand\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst nodes = ref(null);\nconst selectedValue = ref(null);\n\nonMounted(() => {\n    nodes.value = initiateNodes();\n\n    setTimeout(() => {\n        nodes.value.map((node) => (node.loading = false));\n    }, 2000);\n});\n\nconst onNodeExpand = (node) => {\n    if (!node.children) {\n        node.loading = true;\n\n        setTimeout(() => {\n            let _node = { ...node };\n\n            _node.children = [];\n\n            for (let i = 0; i < 3; i++) {\n                _node.children.push({\n                    key: node.key + '-' + i,\n                    label: 'Lazy ' + node.label + '-' + i\n                });\n            }\n\n            nodes.value[parseInt(node.key, 10)] = { ..._node, loading: false };\n        }, 500);\n    }\n};\n\nconst initiateNodes = () => {\n    return [\n        {\n            key: '0',\n            label: 'Node 0',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '1',\n            label: 'Node 1',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '2',\n            label: 'Node 2',\n            leaf: false,\n            loading: true\n        }\n    ];\n};\n<\\/script>"
+                        "options": "<template>\n    <div class=\"card\">\n        <TreeSelect v-model=\"selectedValue\" loadingMode=\"icon\" :options=\"nodes\" @node-expand=\"onNodeExpand\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />\n    </div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            nodes: null,\n            selectedValue: null\n        }\n    },\n    mounted() {\n        this.nodes = this.initiateNodes();\n\n        setTimeout(() => {\n            this.nodes.map((node) => (node.loading = false));\n        }, 2000);\n    },\n    methods: {\n        onNodeExpand(node) {\n            if (!node.children) {\n                node.loading = true;\n\n                setTimeout(() => {\n                    node.children = [];\n\n                    for (let i = 0; i < 3; i++) {\n                        node.children.push({\n                            key: node.key + '-' + i,\n                            label: 'Lazy ' + node.label + '-' + i\n                        });\n                    }\n\n                    node.loading = false;\n                }, 500);\n            }\n        },\n        initiateNodes() {\n            return [\n                {\n                    key: '0',\n                    label: 'Node 0',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '1',\n                    label: 'Node 1',\n                    leaf: false,\n                    loading: true\n                },\n                {\n                    key: '2',\n                    label: 'Node 2',\n                    leaf: false,\n                    loading: true\n                }\n            ];\n        }\n    }\n}\n<\\/script>",
+                        "composition": "<template>\n    <div class=\"card\">\n        <TreeSelect v-model=\"selectedValue\" loadingMode=\"icon\" :options=\"nodes\" @node-expand=\"onNodeExpand\" placeholder=\"Select Item\" class=\"md:w-80 w-full\" />\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\n\nconst nodes = ref(null);\nconst selectedValue = ref(null);\n\nonMounted(() => {\n    nodes.value = initiateNodes();\n\n    setTimeout(() => {\n        nodes.value.map((node) => (node.loading = false));\n    }, 2000);\n});\n\nconst onNodeExpand = (node) => {\n    if (!node.children) {\n        node.loading = true;\n\n        setTimeout(() => {\n            node.children = [];\n\n            for (let i = 0; i < 3; i++) {\n                node.children.push({\n                    key: node.key + '-' + i,\n                    label: 'Lazy ' + node.label + '-' + i\n                });\n            }\n\n            node.loading = false;\n        }, 500);\n    }\n};\n\nconst initiateNodes = () => {\n    return [\n        {\n            key: '0',\n            label: 'Node 0',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '1',\n            label: 'Node 1',\n            leaf: false,\n            loading: true\n        },\n        {\n            key: '2',\n            label: 'Node 2',\n            leaf: false,\n            loading: true\n        }\n    ];\n};\n<\\/script>"
                     }
                 },
                 {
@@ -37492,17 +37497,6 @@
                     }
                 },
                 {
-                    "id": "filter",
-                    "label": "FilterDoc",
-                    "description": "Filtering is enabled by adding the filter property to a Column. The filterMode specifies the filtering strategy, in lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants. A general filled called globalFilter is also provided to search all columns that support filtering.",
-                    "examples": {
-                        "basic": "<SelectButton v-model=\"filterMode\" optionLabel=\"label\" dataKey=\"label\" :options=\"filterOptions\" />\n<TreeTable :value=\"nodes\" :filters=\"filters\" :filterMode=\"filterMode.value\">\n    <template #header>\n        <div class=\"flex justify-end\">\n            <IconField>\n                <InputIcon class=\"pi pi-search\" />\n                <InputText v-model=\"filters['global']\" placeholder=\"Global Search\" />\n            </IconField>\n        </div>\n    </template>\n    <template #empty> No customers found.</template>\n    <Column field=\"name\" header=\"Name\" expander style=\"min-width: 12rem\">\n        <template #filter>\n            <InputText v-model=\"filters['name']\" type=\"text\" placeholder=\"Filter by name\" />\n        </template>\n    </Column>\n    <Column field=\"size\" header=\"Size\" style=\"min-width: 12rem\">\n        <template #filter>\n            <InputText v-model=\"filters['size']\" type=\"text\" placeholder=\"Filter by size\" />\n        </template>\n    </Column>\n    <Column field=\"type\" header=\"Type\" style=\"min-width: 12rem\">\n        <template #filter>\n            <InputText v-model=\"filters['type']\" type=\"text\" placeholder=\"Filter by type\" />\n        </template>\n    </Column>\n</TreeTable>",
-                        "options": "<template>\n    <div class=\"card\">\n        <div class=\"flex justify-center mb-6\">\n            <SelectButton v-model=\"filterMode\" optionLabel=\"label\" dataKey=\"label\" :options=\"filterOptions\" />\n        </div>\n        <TreeTable :value=\"nodes\" :filters=\"filters\" :filterMode=\"filterMode.value\">\n            <template #header>\n                <div class=\"flex justify-end\">\n                    <IconField>\n                        <InputIcon class=\"pi pi-search\" />\n                        <InputText v-model=\"filters['global']\" placeholder=\"Global Search\" />\n                    </IconField>\n                </div>\n            </template>\n            <template #empty> No customers found.</template>\n            <Column field=\"name\" header=\"Name\" expander style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['name']\" type=\"text\" placeholder=\"Filter by name\" />\n                </template>\n            </Column>\n            <Column field=\"size\" header=\"Size\" style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['size']\" type=\"text\" placeholder=\"Filter by size\" />\n                </template>\n            </Column>\n            <Column field=\"type\" header=\"Type\" style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['type']\" type=\"text\" placeholder=\"Filter by type\" />\n                </template>\n            </Column>\n        </TreeTable>\n    </div>\n</template>\n\n<script>\nimport { NodeService } from '@/service/NodeService';\n\nexport default {\n    data() {\n        return {\n            nodes: null,\n            filters: {},\n            filterMode: { label: 'Lenient', value: 'lenient' },\n            filterOptions: [\n                { label: 'Lenient', value: 'lenient' },\n                { label: 'Strict', value: 'strict' }\n            ]\n        }\n    },\n    mounted() {\n        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));\n    }\n}\n<\\/script>",
-                        "composition": "<template>\n    <div class=\"card\">\n        <div class=\"flex justify-center mb-6\">\n            <SelectButton v-model=\"filterMode\" optionLabel=\"label\" dataKey=\"label\" :options=\"filterOptions\" />\n        </div>\n        <TreeTable :value=\"nodes\" :filters=\"filters\" :filterMode=\"filterMode.value\">\n            <template #header>\n                <div class=\"flex justify-end\">\n                    <IconField>\n                        <InputIcon class=\"pi pi-search\" />\n                        <InputText v-model=\"filters['global']\" placeholder=\"Global Search\" />\n                    </IconField>\n                </div>\n            </template>\n            <template #empty> No customers found.</template>\n            <Column field=\"name\" header=\"Name\" expander style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['name']\" type=\"text\" placeholder=\"Filter by name\" />\n                </template>\n            </Column>\n            <Column field=\"size\" header=\"Size\" style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['size']\" type=\"text\" placeholder=\"Filter by size\" />\n                </template>\n            </Column>\n            <Column field=\"type\" header=\"Type\" style=\"min-width: 12rem\">\n                <template #filter>\n                    <InputText v-model=\"filters['type']\" type=\"text\" placeholder=\"Filter by type\" />\n                </template>\n            </Column>\n        </TreeTable>\n    </div>\n</template>\n\n<script setup>\nimport { ref, onMounted } from 'vue';\nimport { NodeService } from '@/service/NodeService';\n\nonMounted(() => {\n    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));\n});\n\nconst nodes = ref();\nconst filters = ref({});\nconst filterMode = ref({ label: 'Lenient', value: 'lenient' });\nconst filterOptions = ref([\n    { label: 'Lenient', value: 'lenient' },\n    { label: 'Strict', value: 'strict' }\n]);\n<\\/script>",
-                        "data": "{\n    key: '0',\n    label: 'Documents',\n    data: 'Documents Folder',\n    icon: 'pi pi-fw pi-inbox',\n    children: [\n        {\n            key: '0-0',\n            label: 'Work',\n            data: 'Work Folder',\n            icon: 'pi pi-fw pi-cog',\n            children: [\n                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },\n                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }\n            ]\n        },\n        {\n            key: '0-1',\n            label: 'Home',\n            data: 'Home Folder',\n            icon: 'pi pi-fw pi-home',\n            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]\n        }\n    ]\n},\n..."
-                    }
-                },
-                {
                     "id": "gridlines",
                     "label": "GridLinesDoc",
                     "description": "Enabling showGridlines displays grid lines.",
@@ -37740,7 +37734,7 @@
                         "name": "filters",
                         "type": "TreeTableFilterMeta",
                         "default": "-",
-                        "description": "Filters object with key-value pairs to define the filters."
+                        "description": "Filters object with key-value pairs to define the filters. Two shapes are accepted per field:\nthe flat form  `{ name: 'value' }` , where the match mode comes from the  `filterMatchMode`  prop of the Column,\nand the DataTable form  `{ name: { value, matchMode } }`  or  `{ name: { operator, constraints: [{ value, matchMode }] } }` , used together with  `filterDisplay` .\nWith multiple constraints,  `and`  applies each constraint in turn to the subtree left by the previous one, and  `or`  keeps every branch that satisfies any constraint."
                     },
                     {
                         "name": "filterMode",
@@ -37749,10 +37743,34 @@
                         "description": "Mode for filtering."
                     },
                     {
+                        "name": "filterDisplay",
+                        "type": "HintedString<\"menu\" | \"row\">",
+                        "default": "-",
+                        "description": "Layout of the filter elements. When undefined, the filter row is rendered from the Column filter slot as-is."
+                    },
+                    {
+                        "name": "globalFilterFields",
+                        "type": "string[]",
+                        "default": "-",
+                        "description": "An array of fields to use in global filtering, defaults to the filter fields of all columns."
+                    },
+                    {
                         "name": "filterLocale",
                         "type": "string",
                         "default": "-",
                         "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+                    },
+                    {
+                        "name": "filterInputProps",
+                        "type": "InputHTMLAttributes",
+                        "default": "-",
+                        "description": "Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component."
+                    },
+                    {
+                        "name": "filterButtonProps",
+                        "type": "Partial<TreeTableFilterButtonPropsOptions>",
+                        "default": "-",
+                        "description": "Used to pass all filter button property object"
                     },
                     {
                         "name": "resizableColumns",
@@ -38361,6 +38379,136 @@
                         "description": "Focus ring shadow of node toggle button"
                     },
                     {
+                        "token": "treetable.filter.inline.gap",
+                        "variable": "--p-treetable-filter-inline-gap",
+                        "description": "Inline gap of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.select.background",
+                        "variable": "--p-treetable-filter-overlay-select-background",
+                        "description": "Overlay select background of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.select.border.color",
+                        "variable": "--p-treetable-filter-overlay-select-border-color",
+                        "description": "Overlay select border color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.select.border.radius",
+                        "variable": "--p-treetable-filter-overlay-select-border-radius",
+                        "description": "Overlay select border radius of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.select.color",
+                        "variable": "--p-treetable-filter-overlay-select-color",
+                        "description": "Overlay select color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.select.shadow",
+                        "variable": "--p-treetable-filter-overlay-select-shadow",
+                        "description": "Overlay select shadow of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.background",
+                        "variable": "--p-treetable-filter-overlay-popover-background",
+                        "description": "Overlay popover background of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.border.color",
+                        "variable": "--p-treetable-filter-overlay-popover-border-color",
+                        "description": "Overlay popover border color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.border.radius",
+                        "variable": "--p-treetable-filter-overlay-popover-border-radius",
+                        "description": "Overlay popover border radius of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.color",
+                        "variable": "--p-treetable-filter-overlay-popover-color",
+                        "description": "Overlay popover color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.shadow",
+                        "variable": "--p-treetable-filter-overlay-popover-shadow",
+                        "description": "Overlay popover shadow of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.padding",
+                        "variable": "--p-treetable-filter-overlay-popover-padding",
+                        "description": "Overlay popover padding of filter"
+                    },
+                    {
+                        "token": "treetable.filter.overlay.popover.gap",
+                        "variable": "--p-treetable-filter-overlay-popover-gap",
+                        "description": "Overlay popover gap of filter"
+                    },
+                    {
+                        "token": "treetable.filter.rule.border.color",
+                        "variable": "--p-treetable-filter-rule-border-color",
+                        "description": "Rule border color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.list.padding",
+                        "variable": "--p-treetable-filter-constraint-list-padding",
+                        "description": "Constraint list padding of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.list.gap",
+                        "variable": "--p-treetable-filter-constraint-list-gap",
+                        "description": "Constraint list gap of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.focus.background",
+                        "variable": "--p-treetable-filter-constraint-focus-background",
+                        "description": "Constraint focus background of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.selected.background",
+                        "variable": "--p-treetable-filter-constraint-selected-background",
+                        "description": "Constraint selected background of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.selected.focus.background",
+                        "variable": "--p-treetable-filter-constraint-selected-focus-background",
+                        "description": "Constraint selected focus background of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.color",
+                        "variable": "--p-treetable-filter-constraint-color",
+                        "description": "Constraint color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.focus.color",
+                        "variable": "--p-treetable-filter-constraint-focus-color",
+                        "description": "Constraint focus color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.selected.color",
+                        "variable": "--p-treetable-filter-constraint-selected-color",
+                        "description": "Constraint selected color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.selected.focus.color",
+                        "variable": "--p-treetable-filter-constraint-selected-focus-color",
+                        "description": "Constraint selected focus color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.separator.border.color",
+                        "variable": "--p-treetable-filter-constraint-separator-border-color",
+                        "description": "Constraint separator border color of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.padding",
+                        "variable": "--p-treetable-filter-constraint-padding",
+                        "description": "Constraint padding of filter"
+                    },
+                    {
+                        "token": "treetable.filter.constraint.border.radius",
+                        "variable": "--p-treetable-filter-constraint-border-radius",
+                        "description": "Constraint border radius of filter"
+                    },
+                    {
                         "token": "treetable.paginator.top.border.color",
                         "variable": "--p-treetable-paginator-top-border-color",
                         "description": "Border color of paginator top"
@@ -38709,7 +38857,7 @@
             "name": "introduction",
             "path": "introduction",
             "title": "Introduction",
-            "description": "The Vue UI component library, continued.",
+            "description": "A community-maintained fork of PrimeVue for Vue 3 and Nuxt.",
             "sections": [
                 {
                     "id": "accessibility",
@@ -38728,7 +38876,7 @@
                 {
                     "id": "overview",
                     "label": "Overview",
-                    "description": "OpenVue is a complete UI suite for Vue.js, consisting of a rich set of components that are easy to tune and customize as an in-house library. The library is a community-maintained continuation of PrimeVue, picked up after it was archived by its original maintainers. Everything you know from PrimeVue v4 is here, under a name and a maintenance path that are not tied to a single company. OpenVue is not affiliated with PrimeTek or PrimeUI. Development is led by Openvi Foundation , an independent organization of developers who run this library in production. Every component is MIT licensed, with no paid tier and nothing held back.",
+                    "description": "OpenVue is a complete UI suite for Vue.js, consisting of a rich set of components that are easy to tune and customize as an in-house library. The library is a community-maintained fork of PrimeVue 4.5.5, started after its original maintainers ended active open source development and moved new releases to a commercial license. Everything you know from PrimeVue v4 is here, under a name and a maintenance path that are not tied to a single company. OpenVue is not affiliated with PrimeTek or PrimeUI. Development is led by Openvi Foundation , an independent organization of developers who run this library in production. Every component is MIT licensed, with no paid tier and nothing held back.",
                     "examples": null
                 },
                 {
@@ -39512,9 +39660,9 @@
                 {
                     "id": "download",
                     "label": "Download",
-                    "description": "OpenVue is available for download on npm registry . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
+                    "description": "OpenVue is available for download on npm registry . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
                     "examples": {
-                        "basic": "# Using npm\nnpm install openvue@rc @openvue/themes\n\n# Using yarn\nyarn add openvue@rc @openvue/themes\n\n# Using pnpm\npnpm add openvue@rc @openvue/themes"
+                        "basic": "# Using npm\nnpm install openvue @openvue/themes\n\n# Using yarn\nyarn add openvue @openvue/themes\n\n# Using pnpm\npnpm add openvue @openvue/themes"
                     }
                 },
                 {
@@ -39526,7 +39674,7 @@
                 {
                     "id": "nextsteps",
                     "label": "Next Steps",
-                    "description": "Welcome to the Openvi! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes",
+                    "description": "Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes",
                     "examples": null
                 },
                 {
@@ -39586,7 +39734,7 @@
                     "label": "Try Without Migrating",
                     "description": "If you just want to evaluate OpenVue first, add an override yourself instead of running the codemod; no source changes needed. Use overrides for npm and bun, or resolutions for yarn. On pnpm, put the same overrides entry in pnpm-workspace.yaml instead, because pnpm 11 no longer reads the pnpm field from package.json . Once you decide to stay, run npx @openvue/migrate for the real rename.",
                     "examples": {
-                        "basic": "{\n    \"overrides\": {\n        \"primevue\": \"npm:openvue@1.0.0-rc.0\"\n    }\n}"
+                        "basic": "{\n    \"overrides\": {\n        \"primevue\": \"npm:openvue@1.0.0\"\n    }\n}"
                     }
                 },
                 {
@@ -39612,6 +39760,64 @@
             ]
         },
         {
+            "name": "primevue-alternative",
+            "path": "primevue-alternative",
+            "title": "PrimeVue Alternative",
+            "description": "PrimeVue 5 ships under a commercial license, and PrimeVue 4 now gets security fixes only. OpenVue keeps the PrimeVue 4 line alive with the same components and API, MIT licensed and actively maintained. Your code stays as it is.",
+            "sections": [
+                {
+                    "id": "compatibility",
+                    "label": "What Changes",
+                    "description": "OpenVue starts from the PrimeVue 4.5.5 source, so moving over is a rename rather than a rewrite. Stays the same Changes Component names, props, events and slots primevue becomes openvue usePrimeVue , PrimeVueResolver and the primevue Nuxt config key @primevue/* packages become @openvue/* p- prefixed CSS classes, pass-through options and unstyled mode PrimeIcons is replaced by OpenIcons , with a compatibility stylesheet that keeps pi pi-* classes working Aura, Lara and Nora theme presets and design tokens Theme presets are imported from @openvue/themes",
+                    "examples": null
+                },
+                {
+                    "id": "longevity",
+                    "label": "Will OpenVue Last?",
+                    "description": "It's the right question to ask about any fork. Here is what protects you. Run by people who depend on it. OpenVue is maintained by the Openvi Foundation , developers who run this library in production themselves, together with outside contributors whose fixes are credited in every release. The whole stack is open. The theming engine and the icon set are maintained alongside the components, and OpenVue has no runtime dependency on any PrimeTek package. Your worst case is fine. Everything is MIT. Whatever happens, the version you install keeps working, and anyone can pick the code up and continue it, the same way OpenVue continued PrimeVue 4. Everything happens in public. Issues, pull requests and decisions are on GitHub , so you can judge the project's health yourself at any time.",
+                    "examples": null
+                },
+                {
+                    "id": "notice",
+                    "label": "Trademark Notice",
+                    "description": "PrimeVue, PrimeUI and PrimeTek are trademarks of their respective owner. OpenVue is an independent community fork and is not affiliated with, sponsored by or endorsed by PrimeTek. The names are used only to identify the software that OpenVue is forked from and compared with. Facts on this page come from PrimeTek's public announcements and the npm registry. Tell us through GitHub issues if anything is out of date.",
+                    "examples": null
+                },
+                {
+                    "id": "options",
+                    "label": "Compare Your Options",
+                    "description": "If you run PrimeVue 4 today, you have three realistic paths. Stay on PrimeVue 4.5.5 Upgrade to PrimeVue 5 Switch to OpenVue License MIT PrimeUI license MIT Cost Free Paid per developer, free Community tier for eligible small organizations Free Updates Security fixes only Active, by PrimeTek Active, by the community Effort None A major version upgrade One command PrimeVue 5 is a good fit if you want vendor support and the PrimeUI license works for your organization. Check primeui.dev for current terms. Staying on 4.5.5 works for apps that are finished, but bugs you hit there will stay unfixed. OpenVue is for teams that want to keep their code, keep MIT and keep getting fixes.",
+                    "examples": null
+                },
+                {
+                    "id": "shipped",
+                    "label": "Shipped Since the Fork",
+                    "description": "A fork is only worth switching to if it keeps shipping. Here are a few highlights from the changelog . Theme Designer, free. Edit every design token visually, watch the docs restyle as you type, and export a preset. No account, no license key, runs entirely in your browser. #655 TreeTable filtering. The filter row and multi-rule filter menu that DataTable already had, styled in all four presets. #638 Variable-height virtual scrolling. VirtualScroller accepts a getItemSize callback, so lists with rows of different heights can be virtualized, and DataTable row groups now work with virtual scrolling. #621 DataTable column widths that stick. Resized widths stay with the right column when columns are hidden or shown, and after a reload. #627 InputNumber typing fixes. Typing after a leading 0 no longer clears the field or shifts currency values. #665 Accessibility fixes. Menu components no longer announce a bogus nesting level to screen readers. #645 AI-ready docs. An MCP server and llms.txt give coding assistants accurate props, events and slots for every component. You can see the result live in the Theme Designer and in Deni , a full application template built on OpenVue.",
+                    "examples": null
+                },
+                {
+                    "id": "try",
+                    "label": "Try It Without Risk",
+                    "description": "You don't have to commit to anything to find out whether OpenVue works for your app. Test it with zero code changes. Add a package override so your existing primevue imports resolve to OpenVue, run your app and your tests. Delete the override to go back. Preview the migration. npx @openvue/migrate --dry lists every file and dependency it would change, and writes nothing. Migrate for real. npx @openvue/migrate asks before writing, and the result is one git diff you can review and revert like any other change.",
+                    "examples": {
+                        "basic": "// 1. try OpenVue without touching your code (package.json, npm and bun)\n{\n    \"overrides\": {\n        \"primevue\": \"npm:openvue@1.0.0\"\n    }\n}\n\n// 2. preview what the migration changes\nnpx @openvue/migrate --dry\n\n// 3. migrate\nnpx @openvue/migrate"
+                    }
+                },
+                {
+                    "id": "why",
+                    "label": "Why Teams Switch",
+                    "description": "Nothing to rewrite Same components, props, events, slots, pass-through and themes as PrimeVue 4.5.5. Switching is a package rename that one command does for you. MIT, no license fees No per-developer pricing, no revenue limits, no license keys. Every package is MIT, and a license change elsewhere cannot reach code you already have. Still moving forward Ten releases since July 2026, a stable 1.0 in September, and fixes and features landing every few weeks from a growing group of contributors.",
+                    "examples": null
+                },
+                {
+                    "id": "faq",
+                    "label": "FAQ",
+                    "description": "Is OpenVue a drop-in replacement for PrimeVue 4? Yes. OpenVue is a fork of PrimeVue 4.5.5 with the same components and public API. Switching renames packages and imports, and @openvue/migrate does that for you in one command. Is OpenVue free for commercial use? Yes. OpenVue is MIT licensed, with no paid tier, no per-developer fee and no revenue limits. Does OpenVue work with Nuxt and Tailwind CSS? Yes. The Nuxt module auto-imports components and works with SSR, and OpenVue integrates with Tailwind CSS in both styled and unstyled modes. Can I migrate a PrimeVue 5 project? The migration tool supports PrimeVue 4.x projects only, since 4.5.5 is the fork point. Projects on version 5 need to be checked by hand. Who maintains OpenVue? The Openvi Foundation , an independent group of developers who use the library in production, together with outside contributors. OpenVue is not affiliated with PrimeTek.",
+                    "examples": null
+                }
+            ]
+        },
+        {
             "name": "nuxt",
             "path": "nuxt",
             "title": "Install OpenVue with Nuxt",
@@ -39626,9 +39832,9 @@
                 {
                     "id": "download",
                     "label": "Download",
-                    "description": "OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
+                    "description": "OpenVue is available for download on npm registry along with the official @openvue/nuxt-module . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
                     "examples": {
-                        "basic": "# Using npm\nnpm install openvue@rc @openvue/themes\nnpm install --save-dev @openvue/nuxt-module@rc\n\n# Using yarn\nyarn add openvue@rc @openvue/themes\nyarn add --dev @openvue/nuxt-module@rc\n\n# Using pnpm\npnpm add openvue@rc @openvue/themes\npnpm add -D @openvue/nuxt-module@rc"
+                        "basic": "# Using npm\nnpm install openvue @openvue/themes\nnpm install --save-dev @openvue/nuxt-module\n\n# Using yarn\nyarn add openvue @openvue/themes\nyarn add --dev @openvue/nuxt-module\n\n# Using pnpm\npnpm add openvue @openvue/themes\npnpm add -D @openvue/nuxt-module"
                     }
                 },
                 {
@@ -39646,7 +39852,7 @@
                 {
                     "id": "nextsteps",
                     "label": "Next Steps",
-                    "description": "Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes",
+                    "description": "Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes",
                     "examples": null
                 },
                 {
@@ -39734,9 +39940,9 @@
                 {
                     "id": "download",
                     "label": "Download",
-                    "description": "OpenVue is available for download on npm registry . OpenVue is currently a release candidate . The public API is what we intend to ship as 1.0; only bug fixes and documentation land before the stable release. The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
+                    "description": "OpenVue is available for download on npm registry . The theming API is also published as @openuxkit/themes , the engine package that @openvue/themes is built on. Both provide the same presets and utilities, so you may substitute one for the other. See theme packages for details.",
                     "examples": {
-                        "basic": "# Using npm\nnpm install openvue@rc @openvue/themes\n\n# Using yarn\nyarn add openvue@rc @openvue/themes\n\n# Using pnpm\npnpm add openvue@rc @openvue/themes"
+                        "basic": "# Using npm\nnpm install openvue @openvue/themes\n\n# Using yarn\nyarn add openvue @openvue/themes\n\n# Using pnpm\npnpm add openvue @openvue/themes"
                     }
                 },
                 {
@@ -39748,7 +39954,7 @@
                 {
                     "id": "nextsteps",
                     "label": "Next Steps",
-                    "description": "Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes",
+                    "description": "Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes",
                     "examples": null
                 },
                 {
@@ -39776,6 +39982,46 @@
                         "options": "<template>\n    <div class=\"card flex justify-center\">\n        <Button label=\"Verify\" />\n    </div>\n</template>\n\n<script>\n<\\/script>",
                         "composition": "<template>\n    <div class=\"card flex justify-center\">\n        <Button label=\"Verify\" />\n    </div>\n</template>\n\n<script setup>\n<\\/script>"
                     }
+                }
+            ]
+        },
+        {
+            "name": "designer",
+            "path": "designer",
+            "title": "Theme Designer",
+            "description": "Design a theme visually and export it as ready-to-use code. Free, MIT-licensed, and entirely local.",
+            "sections": [
+                {
+                    "id": "editor",
+                    "label": "Visual Editor",
+                    "description": "The editor is organised by token collection, matching the theming architecture. Primitive — the raw palettes and border radii. Values here are plain colours and lengths, referenced by everything else. Semantic — roles such as primary , formField and the light and dark colour schemes. Most theming work happens here. Component — tokens for one component at a time. This tab activates on a component's documentation page and selects that component automatically. Custom — your own tokens, added under extend . Use dot-separated lowercase names such as accent.color . Settings — preview typography, theme validation and the migration assistant. Any field accepts either a literal value or a reference to another token in curly braces. Typing an opening brace opens autocompletion over every token in the current theme. Fields whose value resolves to a colour show a swatch, and the sort icon moves a token between the shared section and the light or dark colour scheme. Edits apply live to the whole site, so you are previewing on real components rather than a mock screen. Undo and redo are available with Ctrl+Z and Ctrl+Shift+Z while the editor is open.",
+                    "examples": null
+                },
+                {
+                    "id": "export",
+                    "label": "Export and Sharing",
+                    "description": "The Export menu in the editor footer offers three files and a share link. TypeScript preset — a .ts module exporting your theme, with the overrides annotated satisfies Preset . JavaScript preset — the same module without the type annotations. Theme JSON — a portable document you can re-import later or hand to a teammate. Share link — a URL that reconstructs the theme. The theme travels in the URL fragment, which browsers never send to a server. By default the preset export contains only what you actually changed, expressed as a definePreset call against your base theme. That keeps the file small and means your theme keeps inheriting improvements to the base preset. A full-preset export is available if you would rather vendor a complete snapshot. Typography is deliberately excluded from the generated preset. Font family and root font size are preview conveniences that belong at the document level in your application, so the export records them as a comment instead. Exports are blocked while the theme contains unresolved token references or a reference cycle, because both produce CSS that silently fails to render. Run Check Theme in Settings to see the details.",
+                    "examples": {
+                        "basic": "import { definePreset } from '@openvue/themes';\nimport Aura from '@openvue/themes/aura';\nimport type { Preset } from '@openvue/themes';\n\nconst overrides = {\n    semantic: {\n        primary: {\n            color: '{blue.500}'\n        }\n    }\n} satisfies Preset;\n\nexport const MyTheme = definePreset(Aura, overrides);\n\nexport default MyTheme;"
+                    }
+                },
+                {
+                    "id": "migration",
+                    "label": "Migration Assistant",
+                    "description": "OpenVue adds design tokens as it evolves. A theme created against an earlier release is missing those tokens, which leaves the affected components falling back to unset values. The migration assistant in the Settings tab compares your theme against the current version of its base preset and reports what is missing. Check for Updates lists the missing token paths without changing anything. Migrate then adds them, using the base preset's value for each. It only ever adds: a token you have already customised is never overwritten, so migrating is safe to run at any time and does nothing on a theme that is already current. Newly added tokens carry the base theme's values, which may not suit your design. After migrating, visit the relevant sections and adjust them. Exporting a copy first is still a reasonable habit, and unlike the hosted tools this comparison runs entirely in your browser.",
+                    "examples": null
+                },
+                {
+                    "id": "overview",
+                    "label": "Overview",
+                    "description": "The Theme Designer is a visual editor for the OpenVue theming API. Pick a built-in preset as a foundation, edit primitive, semantic and per-component design tokens, watch the entire documentation site restyle as you type, then export the result as a preset file you can drop into your application. It is part of OpenVue and licensed MIT, like the rest of the library. There is no account, no license key, no theme limit and no paid tier. Open it from the icon in the top bar on any page. The designer edits a preset , the same object you would otherwise hand-write and pass to definePreset . Nothing it produces is designer-specific: an exported theme is ordinary source code with no runtime dependency on this tool.",
+                    "examples": null
+                },
+                {
+                    "id": "privacy",
+                    "label": "Privacy and Storage",
+                    "description": "The designer makes no network requests. Themes are stored in this browser's local storage under the openvue-designer key, and every export, share link and migration is computed on your machine. Nothing is uploaded, and there is no server that could receive it. The practical consequence is that your themes are tied to this browser on this device. Clearing site data removes them. Export a theme as JSON to keep a durable copy, move it to another machine, or commit it alongside your project. Local storage is finite. If it fills up, or if the browser blocks it in a private window, the designer keeps working for the current session and tells you that changes are not being persisted — export your work when you see that warning. Imported files and share links are treated as untrusted input: they are size-limited, checked for a valid schema version, rejected if they contain unsafe object keys, and never executed. A downloaded preset is inert source code that you review like any other dependency.",
+                    "examples": null
                 }
             ]
         },
@@ -39894,7 +40140,7 @@
                 {
                     "id": "introduction",
                     "label": "Introduction",
-                    "description": "OpenVue is an open source Vue UI component library, and a community-maintained continuation of PrimeVue after it was archived by its original maintainers. It is led by openvi-foundation , an independent group of developers who run this library in production and intend to keep it maintained, stable and open. OpenVue is not affiliated with PrimeTek or PrimeUI. Contributions of every size move the library forward. A bug report with a clear reproduction, a correction to a documentation page and a pull request are all worth sending. This guide covers how to set the project up locally and how the codebase is organized. Development Setup To begin with, clone the OpenVue repository from GitHub: The repository is a pnpm workspace, so install pnpm first, then install the dependencies and run the showcase in your local environment at http://localhost:3000/ . Project Structure OpenVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase . Note that the main component package lives in packages/primevue , a folder name kept from the fork, and is published as openvue .",
+                    "description": "OpenVue is an open source Vue UI component library, and a community-maintained fork of PrimeVue 4.5.5, started after its original maintainers ended active open source development and moved new releases to a commercial license. It is led by openvi-foundation , an independent group of developers who run this library in production and intend to keep it maintained, stable and open. OpenVue is not affiliated with PrimeTek or PrimeUI. Contributions of every size move the library forward. A bug report with a clear reproduction, a correction to a documentation page and a pull request are all worth sending. This guide covers how to set the project up locally and how the codebase is organized. Development Setup To begin with, clone the OpenVue repository from GitHub: The repository is a pnpm workspace, so install pnpm first, then install the dependencies and run the showcase in your local environment at http://localhost:3000/ . Project Structure OpenVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase . Note that the main component package lives in packages/primevue , a folder name kept from the fork, and is published as openvue .",
                     "examples": null
                 },
                 {
@@ -39967,7 +40213,7 @@
                     "label": "Cursor",
                     "description": "Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configuration.",
                     "examples": {
-                        "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -40003,7 +40249,7 @@
                     "label": "VS Code",
                     "description": "Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/User/mcp.json for global configuration.",
                     "examples": {
-                        "basic": "{\n    \"servers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"servers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -40011,7 +40257,7 @@
                     "label": "Windsurf",
                     "description": "Edit ~/.codeium/windsurf/mcp_config.json to add the OpenVue MCP server.",
                     "examples": {
-                        "basic": "{\n    \"mcpServers\": {\n        \"primevue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
+                        "basic": "{\n    \"mcpServers\": {\n        \"openvue\": {\n            \"command\": \"npx\",\n            \"args\": [\"-y\", \"@openvue/mcp\"]\n        }\n    }\n}"
                     }
                 },
                 {
@@ -40019,7 +40265,7 @@
                     "label": "Zed",
                     "description": "Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/Application Support/Zed/settings.json (macOS).",
                     "examples": {
-                        "basic": "{\n    \"context_servers\": {\n        \"primevue\": {\n            \"command\": {\n                \"path\": \"npx\",\n                \"args\": [\"-y\", \"@openvue/mcp\"]\n            }\n        }\n    }\n}"
+                        "basic": "{\n  \"context_servers\": {\n    \"openvue\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"-y\",\n        \"@openvue/mcp\"\n      ]\n    }\n  }\n}"
                     }
                 }
             ]
