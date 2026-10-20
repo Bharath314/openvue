@@ -7,7 +7,12 @@ OpenVue forked from PrimeVue at 4.5.5. Pre-fork history is in [CHANGELOG_PRIMEVU
 All packages in this repository are released together under a single version.
 
 ## [Unreleased]
+
 - Volt UI fork of OpenVue
+
+### Added
+
+- New `openvolt-vue` CLI. `npx openvolt-vue add Button` copies OpenVolt components into your project. The components ship inside the package, so they always match your openvue version.
 
 ### Fixed
 
